@@ -1,5 +1,5 @@
 #Made by Mathias Mangino
-#Send on 10-05-2021
+#Date 10-05-2021
 
 use strict;
 
@@ -48,8 +48,7 @@ sub extractor {
 
 sub formatear_secuencia{
 	my $secuencia = $_[0];
-	$$secuencia =~ s/(.{80})/$1\n/g;
-	$$secuencia =~ s/(.{10})/$1 /g;
+	$$secuencia =~ s/(.{70})/$1\n/g;
 }
 
 sub leer_multi_fasta {
@@ -83,7 +82,7 @@ sub extraer_secuencia {
 	my $secuencia = $_[0];
 	my $coordenada_inicio = $_[1];
 	my $coordenada_fin = $_[2];
-#	if ($coordenada_inicio == 0){ die "la coordenada de inicio no puede tomar valores menores a uno";}
+#	if ($coordenada_inicio == 0){ die "the start coordinate cannot take values ​​less than one";}
 	
 	$coordenada_inicio--;
 	$coordenada_fin--;
