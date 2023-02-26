@@ -1,6 +1,6 @@
 # GScissors
 
-GScissors is a Perl script for the extraction of sequences from a multifasta file, allowing the selection of specific sequences by specifying their start and end positions.
+`GScissors` is a Perl script for the extraction of sequences from a multifasta file, allowing the selection of specific sequences by specifying their start and end positions.
 
 ## Features
 
@@ -12,7 +12,7 @@ GScissors is a Perl script for the extraction of sequences from a multifasta fil
 
 ## Usage
 
-To use GScissors, follow these steps:
+To use `GScissors`, follow these steps:
 
     1. Clone the gscissors.pl file from the GitHub repository [Link](https://github.com/mathiashole/GScissors).
     2. Open a terminal on your operating system and navigate to the folder where the gscissors.pl file is located.
