@@ -2,24 +2,24 @@
 
 `GScissors` is a Perl script for the extraction of sequences from a multifasta file, allowing the selection of specific sequences by specifying their start and end positions.
 
-## Features
+## :book: Features
 
-    - Extraction of sequences from a multifasta file.
-    - Specification of start and end positions of the sequences to be extracted.
-    - Changing of sequence names and addition of comments.
-    - Command-line interface.
-    - Support for different input and output file formats, including FASTA, FASTQ, and GenBank.
+-   Extraction of sequences from a multifasta file.
+-   Specification of start and end positions of the sequences to be extracted.
+-   Changing of sequence names and addition of comments.
+-   Command-line interface.
+-   Support for different input and output file formats, including FASTA, FASTQ, and GenBank.
 
-## Usage
+## :hammer: Usage
 
 To use `GScissors`, follow these steps:
 
-    1. Clone the gscissors.pl file from the GitHub repository [Link](https://github.com/mathiashole/GScissors).
-    2. Open a terminal on your operating system and navigate to the folder where the gscissors.pl file is located.
-    3. Run the perl gscissors.pl command followed by the necessary arguments to execute the script. Required arguments include the input multifasta file, the start and end positions of the sequences to be extracted, and the output multifasta file.
-    4. Optionally, you can specify the input and output file formats, as well as change sequence names and add comments.
+-   Clone the gscissors.pl file from the GitHub repository [Link](https://github.com/mathiashole/GScissors).
+-   Open a terminal on your operating system and navigate to the folder where the gscissors.pl file is located.
+-   Run the perl gscissors.pl command followed by the necessary arguments to execute the script. Required arguments include the input multifasta file, the start and end positions of the sequences to be extracted, and the output multifasta file.
+-   Optionally, you can specify the input and output file formats, as well as change sequence names and add comments.
 
-## Example Usage
+## :bulb: Quick Example
 
 ```{bash, eval = FALSE}
 perl gscissors.pl input.fasta position_of_my_sequence.txt output.fasta 
