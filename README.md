@@ -26,11 +26,12 @@ perl gscissors.pl input.fasta position_of_my_sequence.txt output.fasta
 ```
 This command extracts the sequence from positions in the input.fasta file, changes its name to my_sequence and adds the comment This is my sequence, and saves the resulting sequence in the output.fasta file.
 
-## Credits
+## :runner: Author
 
-GScissors was created by Mathias Mangino.
-License
+-   [Mathias Mangino](https://github.com/mathiashole) Student
 
-GScissors is distributed under the MIT license. See the LICENSE file for more information.
+## :sparkling_heart: Contributing
 
-I hope this information is useful. If you have any further questions, feel free to ask.
+We welcome any contributions! By participating in this project you agree
+to abide by the terms outlined in the [Contributor Code of
+Conduct](https://github.com/mathiashole).
