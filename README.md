@@ -35,6 +35,12 @@ This command extracts the sequence from positions in the input.fasta file, chang
 
 ## :sparkling_heart: Contributing
 
-We welcome any contributions! By participating in this project you agree
-to abide by the terms outlined in the [Contributor Code of
-Conduct](https://github.com/mathiashole).
+- :octocat: [Pull requests](https://github.com/mathiashole/GScissors/pulls) and :star2: stars are always welcome.
+- For major changes, please open an [issue](https://github.com/mathiashole/GScissors/issues) first to discuss what you would like to change.
+- Please make sure to update tests as appropriate.
+
+## :mega: Contact
+
+:mailbox: joacomangino@gmail.com
+
+:bird: Twitter [@JoaquinMangino](https://twitter.com/joaquinmangino)
