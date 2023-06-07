@@ -1,5 +1,8 @@
 # GScissors
 
+[![Perl](https://img.shields.io/badge/Perl-blue?style=for-the-badge&logo=perl&logoColor=white&labelColor=101010)]()
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mathiashole/GScissors?logo=GitHub&style=for-the-badge)
+
 `GScissors` is a Perl script for the extraction of sequences from a multifasta file, allowing the selection of specific sequences by specifying their start and end positions.
 
 ## :book: Features
