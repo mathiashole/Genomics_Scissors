@@ -40,3 +40,6 @@ This command extracts the sequence from positions in the input.fasta file, chang
 :mailbox: joacomangino@gmail.com
 
 :bird: Twitter [@JoaquinMangino](https://twitter.com/joaquinmangino)
+
+## License
+MIT &copy; [Mathias Mangino](https://github.com/mathiashole)
