@@ -2,6 +2,28 @@
 #Date 10-05-2021
 
 use strict;
+#use warnings;
+
+# Check if a text file was provided as an argument
+if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV) {
+  # show help message
+  print "Usage: GScissors 🔪 [arguments]\n\n";
+  print "🛠 ARGUMENTS:\n";
+  print "  first argument   ||   fasta file\n";
+  print "  second argument  ||   txt separated by tab\n";
+  print "  thir argument    ||   output fasta file\n\n";
+  print "📄 The format of the table can be:\n";
+  print "  sequence ID	start	end\n";  
+  print "  sequence ID	start	end	  output ID\n\n";
+  print "📨 CONTACT\n";
+  print "  https://github.com/mathiashole\n";
+  print "  joacomangino\@gmail.com\n";
+  print "  https://twitter.com/joaquinmangino\n\n";
+  print "  MIT © Mathias Mangino\n";
+
+  exit 1;
+}
+
 
 my $f1 = shift or die "multifasta file missing\n";
 my $f2 = shift or die "missing coordinate file\n";
