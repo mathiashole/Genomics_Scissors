@@ -3,10 +3,10 @@
 use strict;
 use warnings;
 
-# Obtener los argumentos de la línea de comandos
+# Get command line arguments
 my $option = shift @ARGV;
 my $input_file = shift @ARGV;
-my $output_file = shift @ARGV;
+
 
 # Check if all arguments are provided
 unless ($option && $input_file) {
