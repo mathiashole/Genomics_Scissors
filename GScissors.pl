@@ -11,7 +11,7 @@ if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV) {
   print "🛠 ARGUMENTS:\n";
   print "  first argument   ||   fasta file\n";
   print "  second argument  ||   txt separated by tab\n";
-  print "  thir argument    ||   output fasta file\n\n";
+  print "  third argument    ||   output fasta file\n\n";
   print "📄 The format of the table can be:\n";
   print "  sequence ID	start	end\n";  
   print "  sequence ID	start	end	  output ID\n\n";
