@@ -7,9 +7,11 @@ use strict;
 # Check if a text file was provided as an argument
 if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV) {
   # show help message
-  print "Usage: GScissors 🔪 [arguments]\n\n";
-  print "🛠 ARGUMENTS:\n";
-  print "  first argument   ||   fasta file\n";
+  print "Usage: GScissors 🔪 [OPTIONS]\n\n";
+  print "🛠 Available options:\n\n";
+  print "	-h, --help		Show this help."
+  print "	-v, --version  Show the version of the program."
+  print "	first argument   ||   fasta file\n";
   print "  second argument  ||   txt separated by tab\n";
   print "  third argument    ||   output fasta file\n\n";
   print "📄 The format of the table can be:\n";
