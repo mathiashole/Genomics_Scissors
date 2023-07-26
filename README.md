@@ -12,7 +12,7 @@
 -   Specification of start and end positions of the sequences to be extracted.
 -   Changing of sequence names and addition of comments.
 -   Command-line interface.
--   Support for different input formats, including GFF, BED, and TXT.
+-   Support for different input formats, including GFF, BED and TXT.
 
 ## :hammer: Usage
 
