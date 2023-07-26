@@ -72,7 +72,7 @@ sub extractor {
 
 sub formatear_secuencia{
 	my $secuencia = $_[0];
-	$$secuencia =~ s/(.{70})/$1\n/g;
+	$$secuencia =~ s/(.{80})/$1\n/g;
 }
 
 sub leer_multi_fasta {
