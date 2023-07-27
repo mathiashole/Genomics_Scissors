@@ -5,25 +5,12 @@ use strict;
 #use warnings;
 
 # Check if a text file was provided as an argument
-if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV) {
+# Function to show help
+if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV) {
   # show help message
-  print "Usage: GScissors 🔪 [OPTIONS]\n\n";
-  print "🛠 Available options:\n\n";
-  print "	-h, --help		Show this help."
-  print "	-v, --version  Show the version of the program."
-  print "	first argument   ||   fasta file\n";
-  print "  second argument  ||   txt separated by tab\n";
-  print "  third argument    ||   output fasta file\n\n";
-  print "📄 The format of the table can be:\n";
-  print "  sequence ID	start	end\n";  
-  print "  sequence ID	start	end	  output ID\n\n";
-  print "📨 CONTACT\n";
-  print "  https://github.com/mathiashole\n";
-  print "  joacomangino\@gmail.com\n";
-  print "  https://twitter.com/joaquinmangino\n\n";
-  print "  MIT © Mathias Mangino\n";
-
-  exit 1;
+	show_help();
+} elsif {
+	show_version();
 }
 
 
@@ -127,4 +114,36 @@ sub inversa_complementaria {
 	my $dna_seq_rev_comp = reverse $$dna_seq_ref;
 	$dna_seq_rev_comp =~ tr/ACGTacgt/TGCAtgca/;
 	return $dna_seq_rev_comp;
+}
+
+
+sub show_help {
+
+  print << 'HELP';
+  "Usage: GScissors 🔪 [OPTIONS]
+
+  🛠 Available options:
+
+  	-h, --help		Show this help.
+  	-v, --version	Show the version of the program.
+  	first argument   ||   fasta file
+    second argument  ||   txt separated by tab
+    third argument    ||   output fasta file
+
+  📄 The format of the txt table can be:
+    sequence ID	start	end  
+    sequence ID	start	end	  output ID
+
+  📨 CONTACT
+    https://github.com/mathiashole
+    joacomangino\@gmail.com
+    https://twitter.com/joaquinmangino
+
+    MIT © Mathias Mangino
+HELP
+}
+
+# Function to show the version of the program
+sub show_version {
+    print "GScissors.pl v0.0.1\n";
 }
