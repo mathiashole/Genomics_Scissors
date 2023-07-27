@@ -133,8 +133,8 @@ sub show_help {
     third argument    ||   output fasta file
 
   📄 The format of the txt table can be:
-    sequence ID	start	end  
-    sequence ID	start	end	  output ID
+    sequence_ID	start	end  
+    sequence_ID	start	end	  output_ID
 
   📨 CONTACT
     https://github.com/mathiashole
