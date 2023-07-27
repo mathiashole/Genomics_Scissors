@@ -9,19 +9,35 @@ use strict;
 if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV) {
   # show help message
 	show_help();
-} elsif () {
+
+} elsif ( grep { $_ eq '-v' } @ARGV || grep { $_ eq '--version' } @ARGV) {
+	
 	show_version();
+
+} elsif ( grep { $_ eq '-txt' } @ARGV || grep { $_ eq '--text' } @ARGV) {
+	
+
+	my $f1 = shift or die "multifasta file missing\n";
+	my $f2 = shift or die "need format of cootdinate file -txt, -gff or -bed"
+	my $f3 = shift or die "missing coordinate file\n";
+	my $f4 = shift;
+	my $f5 = shift;
+
+	# por defecto convertir to_uppp si recibo flag no
+
+	extractor($f1,$f3,$f4,$f5);
+
 }
 
 
-my $f1 = shift or die "multifasta file missing\n";
-my $f2 = shift or die "missing coordinate file\n";
-my $f3 = shift;
-my $f4 = shift;
+# my $f1 = shift or die "multifasta file missing\n";
+# my $f2 = shift or die "missing coordinate file\n";
+# my $f3 = shift;
+# my $f4 = shift;
 
-# por defecto convertir to_uppp si recibo flag no
+# # por defecto convertir to_uppp si recibo flag no
 
-extractor($f1,$f2,$f3,$f4);
+# extractor($f1,$f2,$f3,$f4);
 
  
 sub extractor {
