@@ -9,7 +9,7 @@ use strict;
 if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV) {
   # show help message
 	show_help();
-} elsif {
+} elsif () {
 	show_version();
 }
 
@@ -126,7 +126,9 @@ sub show_help {
 
   	-h, --help		Show this help.
   	-v, --version	Show the version of the program.
-  	first argument   ||   fasta file
+  	-gff, --gff		If your data is gff format.
+	-bed, --bed		If your data is bed format.
+	-txt, --text	If your data is txt format.
     second argument  ||   txt separated by tab
     third argument    ||   output fasta file
 
