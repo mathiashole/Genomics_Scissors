@@ -69,6 +69,7 @@ sub convertir_gff_a_txt {
         my $nombre = (split(";", $fields[8]))[0];
         $nombre =~ s/.*?ID=//;
         print $output_fh "$contig\t$inicio\t$fin\t$nombre\n";
+    
     }
 
     close($input_fh);
