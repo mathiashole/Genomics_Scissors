@@ -145,8 +145,12 @@ sub show_help {
   	-gff, --gff		If your data is gff format.
 	-bed, --bed		If your data is bed format.
 	-txt, --text	If your data is txt format.
-    second argument  ||   txt separated by tab
-    third argument    ||   output fasta file
+
+  🛠 Available arguments:
+
+	first argument fasta sequence in txt, bed or gff.
+	second argument  ||   txt separated by tab
+	third argument    ||   output fasta file
 
   📄 The format of the txt table can be:
     sequence_ID	start	end  
