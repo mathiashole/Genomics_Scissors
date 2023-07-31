@@ -148,7 +148,7 @@ sub show_help {
 
   🛠 Available arguments:
 
-	first argument fasta sequence in txt, bed or gff.
+	first argument sequence in fasta format.
 	second argument  ||   txt separated by tab
 	third argument    ||   output fasta file
 
