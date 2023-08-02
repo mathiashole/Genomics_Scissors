@@ -149,7 +149,7 @@ sub show_help {
   🛠 Available [ARGUMENTS]:
 
 	first argument sequence in fasta format.
-	second argument  ||   txt separated by tab
+	second argument input txt, bed or gff format.
 	third argument    ||   output fasta file
 
   📄 The format of the txt table can be:
