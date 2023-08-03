@@ -150,7 +150,7 @@ sub show_help {
 
 	first argument sequence in fasta format.
 	second argument input txt, bed or gff format.
-	third argument    ||   output fasta file
+	third argument output fasta file.
 
   📄 The format of the txt table can be:
     sequence_ID	start	end  
