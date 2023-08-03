@@ -138,7 +138,7 @@ sub show_help {
   print << 'HELP';
   "Usage: GScissors 🔪
 
-  🛠 Available [OPTIONS]:
+  💻 Available [OPTIONS]:
 
   	-h, --help		Show this help.
   	-v, --version	Show the version of the program.
@@ -146,7 +146,7 @@ sub show_help {
 	-bed, --bed		If your data is bed format.
 	-txt, --text	If your data is txt format.
 
-  🛠 Available [ARGUMENTS]:
+  📂 Available [ARGUMENTS]:
 
 	first argument sequence in fasta format.
 	second argument input txt, bed or gff format.
