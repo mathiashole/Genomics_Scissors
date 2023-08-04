@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 
+
 # Get command line arguments
 my $option = shift @ARGV;
 my $input_file = shift @ARGV;
