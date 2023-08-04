@@ -3,6 +3,8 @@
 
 use strict;
 #use warnings;
+use FindBin qw($Bin);
+
 
 # Check if a text file was provided as an argument
 # Function to show help
@@ -16,6 +18,34 @@ if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV ) {
 
 } elsif ( grep { $_ eq '-txt' } @ARGV || grep { $_ eq '--text' } @ARGV ) {
 	
+	# Verify that a second argument is supplied
+    die "Error: Missing FASTA file. Usage: perl main.pl -n50 <fasta_file>\n" unless @ARGV >= 3;
+
+    # Get the name of the FASTA file given as an argument
+    # my $fasta_file = $ARGV[1];
+
+    # Verify that the file exists
+    # die "Error: File '$fasta_file' not found.\n" unless -e $fasta_file; # -e chack for file existence
+
+    # $fasta_file path of file
+    # Verify that the file has a .fasta or .fa extension
+    # my ($file_name, $file_path, $file_ext) = fileparse($fasta_file, qr/\.[^.]*/); # \. = dot in file name. [^.]* = any sequence followed by a dot
+    
+    # fileparse() parse the text and save it in a list of variables
+    #    $file_name = sample
+    #    $file_path = /ruta/del/archivo/fasta/
+    #    $file_ext = .fasta
+    # die "Error: File '$fasta_file' is not in FASTA format.\n" unless $file_ext =~ /^\.fasta|\.fa$/i;
+
+    # Construct the path to the perl script file
+    my $script_convert = "$Bin/convertform.pl";
+
+    # Command in perl to be executed
+    my $comando_n50 = "perl $script_convert \"$1\\ "; ## debugger
+
+    # Run the perl command
+    system($comando_n50);
+
 	# DEBUGGEAR THIS!!!
 	my $f1 = shift or die "multifasta file missing\n";
 	my $f2 = shift or die "need format of cootdinate file -txt, -gff or -bed"
