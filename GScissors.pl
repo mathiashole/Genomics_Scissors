@@ -2,7 +2,8 @@
 # Check if a text file was provided as an argument
 # Function to show help
 if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV ) {
-  # show help message
+    
+    # show help message
 	show_help();
 
 } elsif ( grep { $_ eq '-v' } @ARGV || grep { $_ eq '--version' } @ARGV ) {
