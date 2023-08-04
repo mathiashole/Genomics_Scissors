@@ -3,6 +3,9 @@
 #Made by Mathias Mangino
 #Date 10-05-2021
 
+use strict;
+#use warnings;
+
 my $f1 = shift or die "multifasta file missing\n";
 my $f2 = shift or die "missing coordinate file\n";
 my $f3 = shift;
