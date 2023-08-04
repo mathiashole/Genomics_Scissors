@@ -6,17 +6,30 @@ use strict;
 
 # Check if a text file was provided as an argument
 # Function to show help
-if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV) {
+if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV ) {
   # show help message
 	show_help();
 
-} elsif ( grep { $_ eq '-v' } @ARGV || grep { $_ eq '--version' } @ARGV) {
+} elsif ( grep { $_ eq '-v' } @ARGV || grep { $_ eq '--version' } @ARGV ) {
 	
 	show_version();
 
-} elsif ( grep { $_ eq '-txt' } @ARGV || grep { $_ eq '--text' } @ARGV) {
+} elsif ( grep { $_ eq '-txt' } @ARGV || grep { $_ eq '--text' } @ARGV ) {
 	
+	# DEBUGGEAR THIS!!!
+	my $f1 = shift or die "multifasta file missing\n";
+	my $f2 = shift or die "need format of cootdinate file -txt, -gff or -bed"
+	my $f3 = shift or die "missing coordinate file\n";
+	my $f4 = shift;
+	my $f5 = shift;
 
+	# por defecto convertir to_uppp si recibo flag no
+
+	extractor($f1,$f3,$f4,$f5);
+
+} elsif ( grep { $_ eq '-gff' } @ARGV || grep { $_ eq '--gff' } @ARGV ) {
+
+	# DEBUGGEAR THIS!!!
 	my $f1 = shift or die "multifasta file missing\n";
 	my $f2 = shift or die "need format of cootdinate file -txt, -gff or -bed"
 	my $f3 = shift or die "missing coordinate file\n";
