@@ -27,15 +27,23 @@ print "Directories: $directories\n";
 
 # Read input file and perform conversion as per option
 if ($option eq "-bed") {
+
     convertir_bed_a_txt($input_file, $output_file);
+
 } elsif ($option eq "-gff") {
+
     convertir_gff_a_txt($input_file, $output_file);
+
 } elsif ($option eq "-txt") {
+
     # If the option is -txt, the file is kept unchanged
     # Some additional verification can be added if needed
     rename($input_file, $output_file) or die "Error renaming the file: $!";
+
 } else {
+
     die "Invalid option. Must be -bed, -gff, or -txt.\n";
+    
 }
 
 # Function to convert BED file to TXT
