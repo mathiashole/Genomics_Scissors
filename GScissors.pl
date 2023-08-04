@@ -14,7 +14,7 @@ if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV ) {
 } elsif ( grep { $_ eq '-txt' } @ARGV || grep { $_ eq '--text' } @ARGV ) {
 	
 	# Verify that a second argument is supplied
-    die "Error: Missing FASTA file. Usage: perl main.pl -n50 <fasta_file>\n" unless @ARGV >= 3;
+    #die "Error: Missing FASTA file. Usage: perl main.pl -n50 <fasta_file>\n" unless @ARGV >= 3;
 
     # Get the name of the FASTA file given as an argument
     # my $fasta_file = $ARGV[1];
