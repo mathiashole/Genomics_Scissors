@@ -66,6 +66,7 @@ if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV ) {
 
 }
 
+## Function to show help of the program
 sub show_help {
 
   print << 'HELP';
