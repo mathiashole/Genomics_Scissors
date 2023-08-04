@@ -1,3 +1,4 @@
+#!/usr/bin/perl
 
 # Check if a text file was provided as an argument
 # Function to show help
