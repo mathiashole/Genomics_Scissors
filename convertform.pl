@@ -14,10 +14,16 @@ unless ($option && $input_file) {
 }
 
 # Get the base name of the input file
-my ($output_file, $directories) = $input_file =~ /^(.*)\.[^.]+$/;
+#my ($output_file, $directories) = $input_file =~ /^(.*)\.[^.]+$/;
+my ($output_file, $directories) = $input_file =~ /^(.*?)(\.[^.]+)?$/;
 
 # Add the .txt extension to the output name
 $output_file .= ".txt";
+
+# Debug prints
+print "Input File: $input_file\n";
+print "Output File: $output_file\n";
+print "Directories: $directories\n";
 
 # Read input file and perform conversion as per option
 if ($option eq "-bed") {
@@ -62,12 +68,15 @@ sub convertir_gff_a_txt {
 
     while (my $line = <$input_fh>) {
         chomp $line;
+        #print "Line read: $line\n"; # debug
+        #print "Fields: @fields\n"; # debug
         my @fields = split("\t", $line);
         my $contig = $fields[0];
         my $inicio = $fields[3];
         my $fin = $fields[4];
         my $nombre = (split(";", $fields[8]))[0];
         $nombre =~ s/.*?ID=//;
+        print "$contig\t$inicio\t$fin\t$nombre\n"; # debug
         print $output_fh "$contig\t$inicio\t$fin\t$nombre\n";
     
     }
