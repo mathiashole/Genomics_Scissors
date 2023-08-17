@@ -62,7 +62,7 @@ sub convertir_bed_a_txt {
         my $fin = $fields[2];
         my $nombre = $fields[3];
         print "$contig\t$inicio\t$fin\t$nombre\n"; # debug
-        print $output_fh "$contig\t$inicio\t$fin\t$nombre\n";
+        print $output_fh "$contig\t$inicio\t$fin\t$nombre\n"; # save in file
     }
 
     close($input_fh);
