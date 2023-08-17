@@ -29,7 +29,16 @@ print "Directories: $directories\n";
 # Read input file and perform conversion as per option
 if ($option eq "-bed" && $directories eq ".bed") {
 
-    convertir_bed_a_txt($input_file, $output_file);
+   # convertir_bed_a_txt($input_file, $output_file);
+    convertir_bed_a_txt($input_file);
+## only for debugging
+#    my $data_ref = convertir_bed_a_txt($input_file);
+
+#     # Inspeccionar el contenido de la referencia devuelta
+#     print "Contenido de la referencia devuelta:\n";
+#     foreach my $row_ref (@$data_ref) {
+#         print join("\t", @$row_ref), "\n";
+#     }
 
 } elsif ($option eq "-gff" && $directories eq ".gff") {
 
