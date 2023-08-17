@@ -4,10 +4,10 @@ use strict;
 use warnings;
 use FindBin qw($Bin);
 
-my $f1 = shift or die "multifasta file missing\n";
-my $f2 = shift or die "missing coordinate file\n";
-my $f3 = shift;
-my $f4 = shift;
+#my $f1 = shift or die "multifasta file missing\n";
+#my $f2 = shift or die "missing coordinate file\n";
+#my $f3 = shift;
+#my $f4 = shift;
 
 
 # Check if a text file was provided as an argument
@@ -46,10 +46,10 @@ if (grep { $_ eq '-h' || $_ eq '--help' } @ARGV) {
     my $script_convert = "$Bin/convertform.pl";
 
     # Command in perl to be executed
-    my $script_convert = "perl $script_convert \"$1\\ "; ## debugger
+    my $script_convert_run = "perl $script_convert \"$1\\ "; ## debugger
 
     # Run the perl command
-    system($comando_n50);
+    system($script_convert_run);
 
 	# DEBUGGEAR THIS!!!
 	# my $f1 = shift or die "multifasta file missing\n";
@@ -60,18 +60,18 @@ if (grep { $_ eq '-h' || $_ eq '--help' } @ARGV) {
 
 	# por defecto convertir to_uppp si recibo flag no
 
-	extractor($f1,$f3,$f4,$f5);
+	#extractor($f1,$f3,$f4,$f5);
 
 } elsif ( grep { $_ eq '-gff' } @ARGV || grep { $_ eq '--gff' } @ARGV ) {
 
-    # Construct the path to the perl script file
-    my $script_convert = "$Bin/convertform.pl";
+  # Construct the path to the perl script file
+  my $script_convert = "$Bin/convertform.pl";
 
-    # Command in perl to be executed
-    my $script_convert_run = "perl $script_convert \"$1\\ "; ## debugger
+  # Command in perl to be executed
+  my $script_convert_run = "perl $script_convert \"$1\\ "; ## debugger
 
-    # Run the perl command
-    system($script_convert_run);
+  # Run the perl command
+  system($script_convert_run);
 
 }
 
@@ -83,9 +83,9 @@ sub show_help {
 
   💻 Available [OPTIONS]:
 
-  	-h, --help		Show this help.
-  	-v, --version	Show the version of the program.
-  	-gff, --gff		If your data is gff format.
+    -h, --help		Show this help.
+    -v, --version	Show the version of the program.
+    -gff, --gff		If your data is gff format.
 	  -bed, --bed		If your data is bed format.
 	  -txt, --text	If your data is txt format.
 
