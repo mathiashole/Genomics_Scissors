@@ -29,10 +29,10 @@ print "Directories: $directories\n";
 # Read input file and perform conversion as per option
 if ($option eq "-bed" && $directories eq ".bed") {
 
-   # convertir_bed_a_txt($input_file, $output_file);
-    convertir_bed_a_txt($input_file);
+   # conver_bed_to_txt($input_file, $output_file);
+    conver_bed_to_txt($input_file);
     ## only for debugging
-    #    my $data_ref = convertir_bed_a_txt($input_file);
+    #    my $data_ref = conver_bed_to_txt($input_file);
 
     #     # Inspeccionar el contenido de la referencia devuelta
     #     print "Contenido de la referencia devuelta:\n";
@@ -57,7 +57,7 @@ if ($option eq "-bed" && $directories eq ".bed") {
 }
 
 # Function to convert BED file to TXT
-sub convertir_bed_a_txt {
+sub conver_bed_to_txt {
     # my ($input_file, $output_file) = @_;
     my ($input_file) = @_;
 
