@@ -49,10 +49,13 @@ if ($option eq "-bed" && $directories eq ".bed") {
 
 # Function to convert BED file to TXT
 sub convertir_bed_a_txt {
-    my ($input_file, $output_file) = @_;
+    # my ($input_file, $output_file) = @_;
+    my ($input_file) = @_;
 
     open(my $input_fh, "<", $input_file) or die "Cannot open input file: $!";
-    open(my $output_fh, ">", $output_file) or die "Cannot open output file: $!";
+   # open(my $output_fh, ">", $output_file) or die "Cannot open output file: $!";
+
+    my @data;
 
     while (my $line = <$input_fh>) {
         chomp $line;
@@ -61,12 +64,23 @@ sub convertir_bed_a_txt {
         my $inicio = $fields[1];
         my $fin = $fields[2];
         my $nombre = $fields[3];
-        print "$contig\t$inicio\t$fin\t$nombre\n"; # debug
-        print $output_fh "$contig\t$inicio\t$fin\t$nombre\n"; # save in file
+       # print "$contig\t$inicio\t$fin\t$nombre\n"; # debug
+       # print $output_fh "$contig\t$inicio\t$fin\t$nombre\n"; # save in file
+        push @data, [$contig, $inicio, $fin, $nombre];
     }
 
     close($input_fh);
-    close($output_fh);
+   # close($output_fh);
+
+   ## this point create for debugging
+    # print "Tabla generada:\n";
+    # foreach my $row (@data) {
+    #     my ($contig, $inicio, $fin, $nombre) = @$row;
+    #     print "$contig\t$inicio\t$fin\t$nombre\n";
+    # }
+
+    return \@data;
+    
 }
 
 # Function to convert GFF file to TXT
