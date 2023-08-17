@@ -40,17 +40,17 @@ if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV ) {
     my $script_convert = "$Bin/convertform.pl";
 
     # Command in perl to be executed
-    my $comando_n50 = "perl $script_convert \"$1\\ "; ## debugger
+    my $script_convert = "perl $script_convert \"$1\\ "; ## debugger
 
     # Run the perl command
     system($comando_n50);
 
 	# DEBUGGEAR THIS!!!
-	my $f1 = shift or die "multifasta file missing\n";
-	my $f2 = shift or die "need format of cootdinate file -txt, -gff or -bed"
-	my $f3 = shift or die "missing coordinate file\n";
-	my $f4 = shift;
-	my $f5 = shift;
+	# my $f1 = shift or die "multifasta file missing\n";
+	# my $f2 = shift or die "need format of cootdinate file -txt, -gff or -bed"
+	# my $f3 = shift or die "missing coordinate file\n";
+	# my $f4 = shift;
+	# my $f5 = shift;
 
 	# por defecto convertir to_uppp si recibo flag no
 
@@ -58,16 +58,14 @@ if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV ) {
 
 } elsif ( grep { $_ eq '-gff' } @ARGV || grep { $_ eq '--gff' } @ARGV ) {
 
-	# DEBUGGEAR THIS!!!
-	my $f1 = shift or die "multifasta file missing\n";
-	my $f2 = shift or die "need format of cootdinate file -txt, -gff or -bed"
-	my $f3 = shift or die "missing coordinate file\n";
-	my $f4 = shift;
-	my $f5 = shift;
+    # Construct the path to the perl script file
+    my $script_convert = "$Bin/convertform.pl";
 
-	# por defecto convertir to_uppp si recibo flag no
+    # Command in perl to be executed
+    my $script_convert = "perl $script_convert \"$1\\ "; ## debugger
 
-	extractor($f1,$f3,$f4,$f5);
+    # Run the perl command
+    system($comando_n50);
 
 }
 
@@ -82,14 +80,14 @@ sub show_help {
   	-h, --help		Show this help.
   	-v, --version	Show the version of the program.
   	-gff, --gff		If your data is gff format.
-	-bed, --bed		If your data is bed format.
-	-txt, --text	If your data is txt format.
+	  -bed, --bed		If your data is bed format.
+	  -txt, --text	If your data is txt format.
 
   📂 Available [ARGUMENTS]:
 
-	first argument sequence in fasta format.
-	second argument input txt, bed or gff format.
-	third argument output fasta file.
+	  first argument sequence in fasta format.
+	  second argument input txt, bed or gff format.
+	  third argument output fasta file.
 
   📄 The format of txt table [FORMAT]:
     sequence_ID	start	end  
