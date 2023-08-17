@@ -71,12 +71,12 @@ sub conver_bed_to_txt {
         chomp $line;
         my @fields = split("\t", $line);
         my $contig = $fields[0];
-        my $inicio = $fields[1];
-        my $fin = $fields[2];
-        my $nombre = $fields[3];
-       # print "$contig\t$inicio\t$fin\t$nombre\n"; # debug
-       # print $output_fh "$contig\t$inicio\t$fin\t$nombre\n"; # save in file
-        push @data, [$contig, $inicio, $fin, $nombre];
+        my $start = $fields[1];
+        my $end = $fields[2];
+        my $name = $fields[3];
+       # print "$contig\t$start\t$end\t$name\n"; # debug
+       # print $output_fh "$contig\t$start\t$end\t$name\n"; # save in file
+        push @data, [$contig, $start, $end, $name];
     }
 
     close($input_fh);
@@ -85,8 +85,8 @@ sub conver_bed_to_txt {
    ## this point create for debugging
     # print "Tabla generada:\n";
     # foreach my $row (@data) {
-    #     my ($contig, $inicio, $fin, $nombre) = @$row;
-    #     print "$contig\t$inicio\t$fin\t$nombre\n";
+    #     my ($contig, $start, $end, $name) = @$row;
+    #     print "$contig\t$start\t$end\t$name\n";
     # }
 
     return \@data;
@@ -109,13 +109,13 @@ sub convert_gff_to_txt {
         #print "Fields: @fields\n"; # debug
         my @fields = split("\t", $line);
         my $contig = $fields[0];
-        my $inicio = $fields[3];
-        my $fin = $fields[4];
-        my $nombre = (split(";", $fields[8]))[0];
-        $nombre =~ s/.*?ID=//;
-        #print "$contig\t$inicio\t$fin\t$nombre\n"; # debug
-        #print $output_fh "$contig\t$inicio\t$fin\t$nombre\n";
-        push @data, [$contig, $inicio, $fin, $nombre];
+        my $start = $fields[3];
+        my $end = $fields[4];
+        my $name = (split(";", $fields[8]))[0];
+        $name =~ s/.*?ID=//;
+        #print "$contig\t$start\t$end\t$name\n"; # debug
+        #print $output_fh "$contig\t$start\t$end\t$name\n";
+        push @data, [$contig, $start, $end, $name];
     }
 
     close($input_fh);
