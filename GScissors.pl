@@ -52,7 +52,6 @@ sub show_help {
 
   📨 CONTACT
     https://github.com/mathiashole
-    joacomangino\@gmail.com
     https://twitter.com/joaquinmangino
 
     MIT © Mathias Mangino
