@@ -83,3 +83,23 @@ sub process_conversion {
     # Run the perl command
     system($convert_run);
 }
+
+sub check_fasta_format {
+    my ($file) = @_;
+
+    open(my $fh, "<", $file) or return 0;
+
+    my $is_fasta = 0;
+    while (<$fh>) {
+        chomp;
+        if (/^>/) {
+            $is_fasta = 1;
+            last;
+        }
+    }
+
+    close($fh);
+
+    return $is_fasta;
+}
+
