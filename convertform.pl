@@ -31,14 +31,14 @@ if ($option eq "-bed" && $directories eq ".bed") {
 
    # convertir_bed_a_txt($input_file, $output_file);
     convertir_bed_a_txt($input_file);
-## only for debugging
-#    my $data_ref = convertir_bed_a_txt($input_file);
+    ## only for debugging
+    #    my $data_ref = convertir_bed_a_txt($input_file);
 
-#     # Inspeccionar el contenido de la referencia devuelta
-#     print "Contenido de la referencia devuelta:\n";
-#     foreach my $row_ref (@$data_ref) {
-#         print join("\t", @$row_ref), "\n";
-#     }
+    #     # Inspeccionar el contenido de la referencia devuelta
+    #     print "Contenido de la referencia devuelta:\n";
+    #     foreach my $row_ref (@$data_ref) {
+    #         print join("\t", @$row_ref), "\n";
+    #     }
 
 } elsif ($option eq "-gff" && $directories eq ".gff") {
 
@@ -94,10 +94,13 @@ sub convertir_bed_a_txt {
 
 # Function to convert GFF file to TXT
 sub convertir_gff_a_txt {
-    my ($input_file, $output_file) = @_;
+    # my ($input_file, $output_file) = @_;
+    my ($input_file) = @_;
 
     open(my $input_fh, "<", $input_file) or die "Cannot open input file: $!";
-    open(my $output_fh, ">", $output_file) or die "Cannot open output file: $!";
+   # open(my $output_fh, ">", $output_file) or die "Cannot open output file: $!";
+
+    my @data;
 
     while (my $line = <$input_fh>) {
         chomp $line;
@@ -109,12 +112,13 @@ sub convertir_gff_a_txt {
         my $fin = $fields[4];
         my $nombre = (split(";", $fields[8]))[0];
         $nombre =~ s/.*?ID=//;
-        print "$contig\t$inicio\t$fin\t$nombre\n"; # debug
-        print $output_fh "$contig\t$inicio\t$fin\t$nombre\n";
-    
+        #print "$contig\t$inicio\t$fin\t$nombre\n"; # debug
+        #print $output_fh "$contig\t$inicio\t$fin\t$nombre\n";
+        push @data, [$contig, $inicio, $fin, $nombre];
     }
 
     close($input_fh);
-    close($output_fh);
+   # close($output_fh);
+    return \@data;
 }
 
