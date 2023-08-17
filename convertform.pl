@@ -42,7 +42,8 @@ if ($option eq "-bed" && $directories eq ".bed") {
 
 } elsif ($option eq "-gff" && $directories eq ".gff") {
 
-    convert_gff_to_txt($input_file, $output_file);
+   # convert_gff_to_txt($input_file, $output_file);
+    convert_gff_to_txt($input_file);
 
 } elsif ($option eq "-txt" && $directories eq ".txt") {
 
