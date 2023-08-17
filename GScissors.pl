@@ -78,10 +78,12 @@ sub process_conversion {
     # Command in perl to be executed
     my $convert_run = "perl $script_convert $option $file";
 
-    print $convert_run;
+    print "$convert_run\n\n";
 
     # Run the perl command
     system($convert_run);
+    #my $result = `$convert_run`;
+    #my $result = qx($convert_run);
     #print $result;
 }
 
