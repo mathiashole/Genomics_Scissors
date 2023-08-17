@@ -5,8 +5,8 @@ use warnings;
 
 
 # Get command line arguments
-my $option = shift @ARGV;
-my $input_file = shift @ARGV;
+my $option = shift;
+my $input_file = shift;
 
 
 # Check if all arguments are provided
