@@ -4,14 +4,20 @@ use strict;
 use warnings;
 use FindBin qw($Bin);
 
+my $f1 = shift or die "multifasta file missing\n";
+my $f2 = shift or die "missing coordinate file\n";
+my $f3 = shift;
+my $f4 = shift;
+
+
 # Check if a text file was provided as an argument
 # Function to show help
-if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV ) {
+if (grep { $_ eq '-h' || $_ eq '--help' } @ARGV) {
     
-    # show help message
+  # show help message
 	show_help();
 
-} elsif ( grep { $_ eq '-v' } @ARGV || grep { $_ eq '--version' } @ARGV ) {
+} elsif (grep { $_ eq '-v' || $_ eq '--version' } @ARGV) {
 	
 	show_version();
 
@@ -62,10 +68,10 @@ if (@ARGV == 0 || grep { $_ eq '-h' } @ARGV || grep { $_ eq '--help' } @ARGV ) {
     my $script_convert = "$Bin/convertform.pl";
 
     # Command in perl to be executed
-    my $script_convert = "perl $script_convert \"$1\\ "; ## debugger
+    my $script_convert_run = "perl $script_convert \"$1\\ "; ## debugger
 
     # Run the perl command
-    system($comando_n50);
+    system($script_convert_run);
 
 }
 
