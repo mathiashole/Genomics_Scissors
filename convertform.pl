@@ -11,7 +11,7 @@ my $input_file = shift;
 
 # Check if all arguments are provided
 unless ($option && $input_file) {
-    die "Uso: perl convertir.pl <-bed|-gff|-txt> archivo_entrada archivo_salida\n";
+    die "\t Usage: perl convert.pl < -bed | -gff | -txt > input_file.\n \t See manual or --help option \n";
 }
 
 # Get the base name of the input file
@@ -53,7 +53,7 @@ if ($option eq "-bed" && $directories eq ".bed") {
 
 } else {
 
-    die "Invalid option. Must be -bed, -gff, or -txt.\n See manual or --help option \n";
+    die "\t Invalid option. Must be -bed, -gff, or -txt.\n \t See manual or --help option \n";
 
 }
 
