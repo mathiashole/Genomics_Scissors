@@ -18,31 +18,19 @@ if (grep { $_ eq '-h' || $_ eq '--help' } @ARGV) {
 	show_help();
 
 } elsif (grep { $_ eq '-v' || $_ eq '--version' } @ARGV) {
-	
+  my @filtered_args = grep { $_ eq '-v' || $_ eq '--version' } @ARGV;
+
+  foreach my $var (@filtered_args) {
+    print "$var\n";
+  }
 	show_version();
 
-} elsif ( grep { $_ eq '-txt' } @ARGV || grep { $_ eq '--text' } @ARGV ) {
+} elsif (grep { $_ eq '-txt' } @ARGV || grep { $_ eq '--text' } @ARGV) {
 	
-  # Construct the path to the perl script file
-  my $script_convert = "$Bin/convertform.pl";
-
-  # Command in perl to be executed
-  my $script_convert_run = "perl $script_convert \"$1\\ "; ## debugger
-
-  # Run the perl command
-  system($script_convert_run);
 
 
-} elsif ( grep { $_ eq '-gff' } @ARGV || grep { $_ eq '--gff' } @ARGV ) {
+} elsif (grep { $_ eq '-gff' } @ARGV || grep { $_ eq '--gff' } @ARGV) {
 
-  # Construct the path to the perl script file
-  my $script_convert = "$Bin/convertform.pl";
-
-  # Command in perl to be executed
-  my $script_convert_run = "perl $script_convert \"$1\\ "; ## debugger
-
-  # Run the perl command
-  system($script_convert_run);
 
 }
 
