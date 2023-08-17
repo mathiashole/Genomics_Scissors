@@ -53,7 +53,7 @@ if ($option eq "-bed" && $directories eq ".bed") {
 
 } else {
 
-    die "Invalid option. Must be -bed, -gff, or -txt.\n";
+    die "Invalid option. Must be -bed, -gff, or -txt.\n See manual or --help option \n";
 
 }
 
