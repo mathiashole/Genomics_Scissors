@@ -42,7 +42,7 @@ if ($option eq "-bed" && $directories eq ".bed") {
 
 } elsif ($option eq "-gff" && $directories eq ".gff") {
 
-    convertir_gff_a_txt($input_file, $output_file);
+    convert_gff_to_txt($input_file, $output_file);
 
 } elsif ($option eq "-txt" && $directories eq ".txt") {
 
@@ -93,7 +93,7 @@ sub conver_bed_to_txt {
 }
 
 # Function to convert GFF file to TXT
-sub convertir_gff_a_txt {
+sub convert_gff_to_txt {
     # my ($input_file, $output_file) = @_;
     my ($input_file) = @_;
 
