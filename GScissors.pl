@@ -4,34 +4,21 @@ use strict;
 use warnings;
 use FindBin qw($Bin);
 
-#my $f1 = shift or die "multifasta file missing\n";
-#my $f2 = shift or die "missing coordinate file\n";
-#my $f3 = shift;
-#my $f4 = shift;
-
+my $f1 = shift; 
+my $f2 = shift;
 
 # Check if a text file was provided as an argument
 # Function to show help
-if (grep { $_ eq '-h' || $_ eq '--help' } @ARGV) {
-    
-  # show help message
-	show_help();
 
-} elsif (grep { $_ eq '-v' || $_ eq '--version' } @ARGV) {
-  my @filtered_args = grep { $_ eq '-v' || $_ eq '--version' } @ARGV;
-
-  foreach my $var (@filtered_args) {
-    print "$var\n";
-  }
-	show_version();
-
-} elsif (grep { $_ eq '-txt' } @ARGV || grep { $_ eq '--text' } @ARGV) {
-	
-
-
-} elsif (grep { $_ eq '-gff' } @ARGV || grep { $_ eq '--gff' } @ARGV) {
-
-
+if ($f1 eq '-h' || $f1 eq '--help') {
+    show_help();
+} elsif ($f1 eq '-v' || $f1 eq '--version') {
+    show_version();
+} elsif ($f1 eq '-txt' || $f1 eq '--text') {
+    print "$f2\n";  # Imprime el valor del segundo argumento
+} elsif ($f1 eq '-gff' || $f1 eq '--gff') {
+    print "$f2\n";  # Imprime el valor del segundo argumento
+    print "hola\n";
 }
 
 ## Function to show help of the program
