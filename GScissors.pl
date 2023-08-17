@@ -15,10 +15,44 @@ if ($f1 eq '-h' || $f1 eq '--help') {
 } elsif ($f1 eq '-v' || $f1 eq '--version') {
     show_version();
 } elsif ($f1 eq '-txt' || $f1 eq '--text') {
-    print "$f2\n";  # Imprime el valor del segundo argumento
+    
+    # Construct the path to the perl script file
+    my $script_convert = "$Bin/convertform.pl";
+
+    # Command in perl to be executed
+    my $convert_run = "perl $script_convert $f1 $f2";
+
+    print "$convert_run";
+
+    # Run the perl command
+    system($convert_run);
+
 } elsif ($f1 eq '-gff' || $f1 eq '--gff') {
-    print "$f2\n";  # Imprime el valor del segundo argumento
-    print "hola\n";
+    
+    # Construct the path to the perl script file
+    my $script_convert = "$Bin/convertform.pl";
+
+    # Command in perl to be executed
+    my $convert_run = "perl $script_convert $f1 $f2";
+
+    print "$convert_run";
+
+    # Run the perl command
+    system($convert_run);
+
+} elsif ($f1 eq '-bed' || $f1 eq '--bed') {
+    
+    # Construct the path to the perl script file
+    my $script_convert = "$Bin/convertform.pl";
+
+    # Command in perl to be executed
+    my $convert_run = "perl $script_convert $f1 $f2";
+
+    print "$convert_run";
+
+    # Run the perl command
+    system($convert_run);
+
 }
 
 ## Function to show help of the program
