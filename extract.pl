@@ -1,7 +1,13 @@
 #!/usr/bin/perl
 
-#Made by Mathias Mangino
-#Date 10-05-2021
+# Module extract.pl
+# Description:  Extract streams in fasta format
+# Author: Miguel Ponce de Leon
+# Date: 13-02-2008
+# Version: 1.1.0
+# Author: Mathias Mangino
+# Date 10-05-2021
+# Version: 1.1.1
 
 use strict;
 #use warnings;
