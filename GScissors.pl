@@ -86,13 +86,17 @@ sub process_conversion {
     return $output;
 }
 
-sub proof{
+sub proof {
     my $prueba = process_conversion($f1, $f2);
     my @arreglo = split("\n", $prueba);
     foreach my $line (@arreglo) {
        # Trabajar con cada línea en el array
-       print "$line\n";
+        #print "$line\n";
+        # Acumular la línea en la variable
+        my $acumulated_output .= "$line\n";
+        #print $acumulated_output;
     }
+    #another_cuntion(la, la, la, $acumulated_output)
 }
 
 sub check_fasta_format {
