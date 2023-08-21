@@ -122,3 +122,27 @@ sub check_fasta_format {
     return $is_fasta;
 }
 
+sub check_all_tags {
+    my ($f1, $f2, $f3, $f4, $f5) = @_;
+
+    if ($f1 eq '-fasta' || $f1 eq '--fasta') {
+        if (check_fasta_format($f2)) {
+            print "$f2 is in FASTA format\n";
+        } else {
+            die "$f2 is not in FASTA format\n";
+        }
+    } elsif ($f3 eq '-txt' || $f3 eq '--text' ||
+             $f3 eq '-gff' || $f3 eq '--gff' ||
+             $f3 eq '-bed' || $f3 eq '--bed') {
+        if (validate_filename_format($f4)) {
+            # process_conversion($f1, $f2); # No es necesario ejecutarlo en esta parte
+            process_extract($f1,$f2, $f3, $f4, $f5);
+        } else {
+            print "\tFile format is invalid: $f4\n";
+        }
+    } else {
+        print "\tUnrecognized option: $f3\n";
+    }
+}
+
+
