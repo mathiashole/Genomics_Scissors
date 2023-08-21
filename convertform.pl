@@ -22,9 +22,9 @@ my ($output_file, $directories) = $input_file =~ /^(.*?)(\.[^.]+)?$/;
 $output_file .= ".txt";
 
 # Debug prints
-print "Input File: $input_file\n";
-print "Output File: $output_file\n";
-print "Directories: $directories\n";
+# print "Input File: $input_file\n";
+# print "Output File: $output_file\n";
+# print "Directories: $directories\n";
 
 # Read input file and perform conversion as per option
 if ($option eq "-bed" && $directories eq ".bed") {
@@ -35,7 +35,7 @@ if ($option eq "-bed" && $directories eq ".bed") {
        my $data_ref = conver_bed_to_txt($input_file);
 
         # Inspeccionar el contenido de la referencia devuelta
-        print "Contenido de la referencia devuelta:\n";
+        # print "Contenido de la referencia devuelta:\n";
         foreach my $row_ref (@$data_ref) {
             print join("\t", @$row_ref), "\n";
         }
