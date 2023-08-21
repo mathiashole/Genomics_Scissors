@@ -31,14 +31,14 @@ if ($option eq "-bed" && $directories eq ".bed") {
 
    # conver_bed_to_txt($input_file, $output_file);
     conver_bed_to_txt($input_file);
-    ## only for debugging
-    #    my $data_ref = conver_bed_to_txt($input_file);
+    # only for debugging
+       my $data_ref = conver_bed_to_txt($input_file);
 
-    #     # Inspeccionar el contenido de la referencia devuelta
-    #     print "Contenido de la referencia devuelta:\n";
-    #     foreach my $row_ref (@$data_ref) {
-    #         print join("\t", @$row_ref), "\n";
-    #     }
+        # Inspeccionar el contenido de la referencia devuelta
+        print "Contenido de la referencia devuelta:\n";
+        foreach my $row_ref (@$data_ref) {
+            print join("\t", @$row_ref), "\n";
+        }
 
 } elsif ($option eq "-gff" && $directories eq ".gff") {
 
