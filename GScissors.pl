@@ -19,7 +19,7 @@ if ($f1 eq '-h' || $f1 eq '--help') {
          $f1 eq '-bed' || $f1 eq '--bed') {
     if (validate_filename_format($f2)) {
         # process_conversion($f1, $f2); # its not neccesary execute in this part
-        proof($f1, $f2);
+        process_extract($f1, $f2);
     } else {
         print "\tFile format is invalid: $f2\n";
     }
@@ -86,7 +86,7 @@ sub process_conversion {
     return $output;
 }
 
-sub proof {
+sub process_extract {
     my $prueba = process_conversion($f1, $f2);
     my @arreglo = split("\n", $prueba);
     foreach my $line (@arreglo) {
