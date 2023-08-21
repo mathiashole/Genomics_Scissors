@@ -87,12 +87,16 @@ sub process_conversion {
 }
 
 sub process_extract {
+    # This section execute process_conversion() and save in variable
     my $prueba = process_conversion($f1, $f2);
+    
+    # split array into line
     my @arreglo = split("\n", $prueba);
+    
     foreach my $line (@arreglo) {
-       # Trabajar con cada línea en el array
+       # Work with each line in the array
         #print "$line\n";
-        # Acumular la línea en la variable
+        # Accumulate line in variable
         my $acumulated_output .= "$line\n";
         #print $acumulated_output;
     }
