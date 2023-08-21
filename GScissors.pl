@@ -19,6 +19,7 @@ if ($f1 eq '-h' || $f1 eq '--help') {
          $f1 eq '-bed' || $f1 eq '--bed') {
     if (validate_filename_format($f2)) {
         process_conversion($f1, $f2);
+        proof($f1, $f2);
     } else {
         print "\tFile format is invalid: $f2\n";
     }
@@ -78,11 +79,20 @@ sub process_conversion {
     # Command in perl to be executed
     my $convert_run = "perl $script_convert $option $file";
     
-    system($convert_run);
-    #my $result = `$convert_run`;
-    #my $result = qx($convert_run);
-    #print $result;
+    #my @arreglo = system($convert_run);
 
+    my $output = `$convert_run`;  # Capture command output
+
+    return $output;
+}
+
+sub proof{
+    my $prueba = process_conversion($f1, $f2);
+    my @arreglo = split("\n", $prueba);
+    foreach my $line (@arreglo) {
+       # Trabajar con cada línea en el array
+       print "$line\n";
+    }
 }
 
 sub check_fasta_format {
