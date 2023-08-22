@@ -4,8 +4,12 @@ use strict;
 use warnings;
 use FindBin qw($Bin);
 
-my $f1 = shift; 
-my $f2 = shift;
+my $f1 = shift or die "Missing option -fasta\n";
+my $f2 = shift or die "Missing input fasta file\n";
+my $f3 = shift or die "Missing option format -gff, -bed or -txt\n";
+my $f4 = shift or die "Missing file in gff, bed or txt\n";
+my $f5 = shift or die "Missing output fasta file";
+my $f6 = shift;
 
 # Check if a text file was provided as an argument
 # Function to show help
