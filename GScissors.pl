@@ -122,6 +122,17 @@ sub check_fasta_format {
     return $is_fasta;
 }
 
+sub validate_fasta_format {
+    my ($file) = @_;
+
+    if (check_fasta_format($file)) {
+        print "The file '$file' is in FASTA format.\n";
+    } else {
+        die "Error: The file '$file' is not in valid FASTA format.\n Check --help or manual";
+    }
+}
+
+
 sub check_all_tags {
     my ($f1, $f2, $f3, $f4, $f5) = @_;
 
