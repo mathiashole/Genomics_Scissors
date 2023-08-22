@@ -133,7 +133,7 @@ sub validate_fasta_format {
 }
 
 
-sub check_all_tags {
+sub validation_and_execution_flow {
     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
 
     if ($f1 eq '-fasta' || $f1 eq '--fasta') {
