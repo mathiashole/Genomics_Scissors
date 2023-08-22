@@ -58,7 +58,7 @@ HELP
 
 # Function to show the version of the program
 sub show_version {
-    print "GScissors.pl v1.1.1\n";
+    print "GScissors.pl v1.2.0-beta\n";
 }
 
 sub validate_filename_format {
