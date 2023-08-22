@@ -128,7 +128,7 @@ sub validate_fasta_format {
     if (check_fasta_format($file)) {
         print "The file '$file' is in FASTA format.\n";
     } else {
-        die "Error: The file '$file' is not in valid FASTA format.\n Check --help or manual";
+        die "Error: The file '$file' is not in valid FASTA format.\n";
     }
 }
 
@@ -137,11 +137,8 @@ sub check_all_tags {
     my ($f1, $f2, $f3, $f4, $f5) = @_;
 
     if ($f1 eq '-fasta' || $f1 eq '--fasta') {
-        if (check_fasta_format($f2)) {
-            print "$f2 is in FASTA format\n";
-        } else {
-            die "$f2 is not in FASTA format\n";
-        }
+        # check format fasta second args
+        validate_fasta_format($f2)
     } elsif ($f3 eq '-txt' || $f3 eq '--text' ||
              $f3 eq '-gff' || $f3 eq '--gff' ||
              $f3 eq '-bed' || $f3 eq '--bed') {
