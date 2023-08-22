@@ -87,8 +87,9 @@ sub process_conversion {
 }
 
 sub process_extract {
+    my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
     # This section execute process_conversion() and save in variable
-    my $prueba = process_conversion($f1, $f2);
+    my $prueba = process_conversion($f3, $f4);
     
     # split array into line
     my @arreglo = split("\n", $prueba);
@@ -100,6 +101,17 @@ sub process_extract {
         my $acumulated_output .= "$line\n";
         #print $acumulated_output;
     }
+
+    # Construct the path to the perl script file
+    my $script_extract = "$Bin/extract.pl";
+
+    # Command in perl to be executed
+    my $extract_run = "perl $script_extract $f2 $f4 $f5 $f6";
+    
+    #my @arreglo = system($convert_run);
+
+    system($extract_run);  # Capture command output
+
     #another_cuntion(la, la, la, $acumulated_output)
 }
 
