@@ -29,21 +29,21 @@ $output_file .= ".txt";
 # Read input file and perform conversion as per option
 if ($option eq "-bed" && $directories eq ".bed") {
 
-   # conver_bed_to_txt($input_file, $output_file);
-    conver_bed_to_txt($input_file);
-    # only for debugging
-       my $data_ref = conver_bed_to_txt($input_file);
+    my $data_ref = convert_bed_to_txt($input_file);
 
-        # Inspeccionar el contenido de la referencia devuelta
-        # print "Contenido de la referencia devuelta:\n";
-        foreach my $row_ref (@$data_ref) {
-            print join("\t", @$row_ref), "\n";
-        }
+    foreach my $row_ref (@$data_ref) {
+        print join("\t", @$row_ref), "\n";
+    }
 
 } elsif ($option eq "-gff" && $directories eq ".gff") {
 
    # convert_gff_to_txt($input_file, $output_file);
-    convert_gff_to_txt($input_file);
+   # convert_gff_to_txt($input_file);
+    my $data_ref = convert_gff_to_txt($input_file);
+
+    foreach my $row_ref (@$data_ref) {
+        print join("\t", @$row_ref), "\n";
+    }
 
 } elsif ($option eq "-txt" && $directories eq ".txt") {
 
@@ -58,7 +58,7 @@ if ($option eq "-bed" && $directories eq ".bed") {
 }
 
 # Function to convert BED file to TXT
-sub conver_bed_to_txt {
+sub convert_bed_to_txt {
     # my ($input_file, $output_file) = @_;
     my ($input_file) = @_;
 
@@ -82,15 +82,7 @@ sub conver_bed_to_txt {
     close($input_fh);
    # close($output_fh);
 
-   ## this point create for debugging
-    # print "Tabla generada:\n";
-    # foreach my $row (@data) {
-    #     my ($contig, $start, $end, $name) = @$row;
-    #     print "$contig\t$start\t$end\t$name\n";
-    # }
-
-    return \@data;
-    
+    return \@data;    
 }
 
 # Function to convert GFF file to TXT
