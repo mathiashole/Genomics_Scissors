@@ -134,7 +134,7 @@ sub validate_fasta_format {
 
 
 sub check_all_tags {
-    my ($f1, $f2, $f3, $f4, $f5) = @_;
+    my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
 
     if ($f1 eq '-fasta' || $f1 eq '--fasta') {
         # check format fasta second args
@@ -144,7 +144,7 @@ sub check_all_tags {
              $f3 eq '-bed' || $f3 eq '--bed') {
         if (validate_filename_format($f4)) {
             # process_conversion($f1, $f2); # No es necesario ejecutarlo en esta parte
-            process_extract($f1,$f2, $f3, $f4, $f5);
+            process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
             print "\tFile format is invalid: $f4\n";
         }
