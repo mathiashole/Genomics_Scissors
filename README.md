@@ -23,7 +23,7 @@ To use `GScissors`, follow these steps:
 -   Run the perl gscissors.pl command followed by the necessary arguments to execute the script. Required arguments include the input multifasta file, the start and end positions of the sequences to be extracted, and the output multifasta file.
 -   Optionally, you can specify the input and output file formats, as well as change sequence names and add comments.
 
-## :bulb: Quick Example
+## :bulb: Quick Examples
 
 ```{bash, eval = FALSE}
 perl gscissors.pl -fasta input.fasta -txt position_of_my_sequence.txt output.fasta 
