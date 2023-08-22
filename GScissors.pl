@@ -58,7 +58,7 @@ HELP
 
 # Function to show the version of the program
 sub show_version {
-    print "GScissors.pl v0.0.1\n";
+    print "GScissors.pl v1.1.1\n";
 }
 
 sub validate_filename_format {
@@ -68,13 +68,13 @@ sub validate_filename_format {
 }
 
 sub process_conversion {
-    my ($option, $file) = @_;
-
+    my ($f3, $f4) = @_;
+    
     # Construct the path to the perl script file
     my $script_convert = "$Bin/convertform.pl";
 
     # Command in perl to be executed
-    my $convert_run = "perl $script_convert $option $file";
+    my $convert_run = "perl $script_convert $f3 $f4";
     
     #my @arreglo = system($convert_run);
 
@@ -85,6 +85,8 @@ sub process_conversion {
 
 sub process_extract {
     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
+    
+    print "Start of format conversion $f4\n\n";
     # This section execute process_conversion() and save in variable
     my $prueba = process_conversion($f3, $f4);
     
@@ -95,7 +97,7 @@ sub process_extract {
 
     foreach my $line (@arreglo) {
        # Work with each line in the array
-        print "$line\n";
+        #print "$line\n";
         # Accumulate line in variable
         my $acumulated_output .= "$line\n";
         #print $acumulated_output;
@@ -103,9 +105,9 @@ sub process_extract {
     
     # Construct the path to the perl script file
     my $script_extract = "$Bin/extract.pl";
-
+    print $script_extract;
     # Command in perl to be executed
-    my $extract_run = "perl $script_extract $f2 $acumulated_output $f5 $f6";
+    my $extract_run = "perl $script_extract $f2 $acumulated_output $f4 $f5 $f6";
     
     #my @arreglo = system($convert_run);
 
@@ -137,7 +139,7 @@ sub validate_fasta_format {
     my ($file) = @_;
 
     if (check_fasta_format($file)) {
-        print "The file '$file' is in FASTA format.\n";
+        print "The file '$file' is in FASTA format.\n\n";
     } else {
         die "Error: The file '$file' is not in valid FASTA format.\n";
     }
@@ -150,19 +152,30 @@ sub validation_and_execution_flow {
     #print "$f1 $f2 $f3 $f4 $f5 $f6";
 
     if ($f1 eq '-fasta' || $f1 eq '--fasta') {
-        # check format fasta second args
-        validate_fasta_format($f2)
+        print "\nInit from extract fasta block\n\n";
+        
+        if (validate_fasta_format($f2)) {
+            # Continuar aquí si la validación de formato FASTA es exitosa
+            print "Valid FASTA format. Processing...\n";
+            process_extract($f1, $f2, $f3, $f4, $f5, $f6);
+        } else {
+            print "Formato FASTA inválido: $f2\n";
+            # Manejar el caso de formato inválido si es necesario
+        }
     } elsif ($f3 eq '-txt' || $f3 eq '--text' ||
              $f3 eq '-gff' || $f3 eq '--gff' ||
              $f3 eq '-bed' || $f3 eq '--bed') {
         if (validate_filename_format($f4)) {
-            # process_conversion($f1, $f2); # No es necesario ejecutarlo en esta parte
+            # Continuar aquí si el formato de archivo es válido
+            print "Formato de archivo válido: $f4\n";
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
             print "\tFile format is invalid: $f4\n";
+            # Manejar el caso de formato inválido si es necesario
         }
     } else {
         print "\tUnrecognized option: $f3\n";
+        # Manejar el caso de opción no reconocida si es necesario
     }
 }
 
