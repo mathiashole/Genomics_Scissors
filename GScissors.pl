@@ -18,15 +18,8 @@ if ($f1 eq '-h' || $f1 eq '--help') {
     show_help();
 } elsif ($f1 eq '-v' || $f1 eq '--version') {
     show_version();
-} elsif ($f1 eq '-txt' || $f1 eq '--text' ||
-         $f1 eq '-gff' || $f1 eq '--gff' ||
-         $f1 eq '-bed' || $f1 eq '--bed') {
-    if (validate_filename_format($f2)) {
-        # process_conversion($f1, $f2); # its not neccesary execute in this part
-        process_extract($f1, $f2);
-    } else {
-        print "\tFile format is invalid: $f2\n";
-    }
+} elsif ($f1 ne '-v' && $f1 ne '--version' && $f1 ne '-h' && $f1 ne '--help') {
+    validation_and_execution_flow($f1, $f2, $f3, $f4, $f5, $f6);
 } else {
     print "\tUnrecognized option: $f1\n";
 }
@@ -98,19 +91,21 @@ sub process_extract {
     # split array into line
     my @arreglo = split("\n", $prueba);
     
+    my $acumulated_output = '';
+
     foreach my $line (@arreglo) {
        # Work with each line in the array
-        #print "$line\n";
+        print "$line\n";
         # Accumulate line in variable
         my $acumulated_output .= "$line\n";
         #print $acumulated_output;
     }
-
+    
     # Construct the path to the perl script file
     my $script_extract = "$Bin/extract.pl";
 
     # Command in perl to be executed
-    my $extract_run = "perl $script_extract $f2 $f4 $f5 $f6";
+    my $extract_run = "perl $script_extract $f2 $acumulated_output $f5 $f6";
     
     #my @arreglo = system($convert_run);
 
@@ -151,6 +146,8 @@ sub validate_fasta_format {
 
 sub validation_and_execution_flow {
     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
+
+    #print "$f1 $f2 $f3 $f4 $f5 $f6";
 
     if ($f1 eq '-fasta' || $f1 eq '--fasta') {
         # check format fasta second args
