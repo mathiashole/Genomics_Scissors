@@ -37,7 +37,7 @@ perl gscissors.pl -fasta input.fasta -bed file.bed output.fasta
 ```{bash, eval = FALSE}
 perl gscissors.pl --help 
 ```
-This command extracts the sequence from positions in the input.fasta file, changes its name to my_sequence and adds the comment This is my sequence, and saves the resulting sequence in the output.fasta file.
+This program extracts the sequence of positions in the input.fasta file, renames it, and saves the resulting sequence in the output.fasta file.
 
 ## :sparkling_heart: Contributing
 
