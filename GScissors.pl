@@ -35,8 +35,8 @@ sub show_help {
     -h, --help		Show this help.
     -v, --version	Show the version of the program.
     -gff, --gff		If your data is gff format.
-	  -bed, --bed		If your data is bed format.
-	  -txt, --text	If your data is txt format.
+	-bed, --bed		If your data is bed format.
+    -txt, --text	If your data is txt format.
 
   📂 Available [ARGUMENTS]:
 
