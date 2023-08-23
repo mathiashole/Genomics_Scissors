@@ -21,7 +21,7 @@ if ($f1 eq '-h' || $f1 eq '--help') {
 } elsif ($f1 eq '-fasta' || $f1 eq '--fasta') {
     validation_and_execution_flow($f1, $f2, $f3, $f4, $f5, $f6);
 } else {
-    print "\tUnrecognized option: $f1\n \tCheck --help or manual\n";
+    print "\tUnrecognized option: $f1❗\n\n \tCheck --help or manual\t🔍\n";
 }
 
 ## Function to show help of the program
