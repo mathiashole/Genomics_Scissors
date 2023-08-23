@@ -18,7 +18,7 @@ if ($f1 eq '-h' || $f1 eq '--help') {
     show_help();
 } elsif ($f1 eq '-v' || $f1 eq '--version') {
     show_version();
-} elsif ($f1 ne '-v' && $f1 ne '--version' && $f1 ne '-h' && $f1 ne '--help') {
+} elsif ($f1 eq '-fasta' || $f1 eq '--fasta') {
     validation_and_execution_flow($f1, $f2, $f3, $f4, $f5, $f6);
 } else {
     print "\tUnrecognized option: $f1\n";
