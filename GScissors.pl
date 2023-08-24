@@ -143,7 +143,7 @@ sub validate_fasta_format {
     my ($file) = @_;
 
     if (check_fasta_format($file)) {
-        print "The file '$file' is in FASTA format.\n\n";
+        print "$file is in FASTA format. Successful\n\n";
     } else {
         die "Error: The file '$file' is not in valid FASTA format.\n";
     }
@@ -157,10 +157,10 @@ sub validation_and_execution_flow {
 
     if ($f1 eq '-fasta' || $f1 eq '--fasta') {
         print "\nStart GScissots program\n\n";
-        
+        print "Valid FASTA format. Processing...\n";
         if (validate_fasta_format($f2)) {
             # Continuar aquí si la validación de formato FASTA es exitosa
-            print "Valid FASTA format. Processing...\n";
+            
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
             print "Formato FASTA inválido: $f2\n";
