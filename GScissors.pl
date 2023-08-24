@@ -156,7 +156,7 @@ sub validation_and_execution_flow {
     #print "$f1 $f2 $f3 $f4 $f5 $f6";
 
     if ($f1 eq '-fasta' || $f1 eq '--fasta') {
-        print "\nInit from extract fasta block\n\n";
+        print "\nStart GScissots program\n\n";
         
         if (validate_fasta_format($f2)) {
             # Continuar aquí si la validación de formato FASTA es exitosa
