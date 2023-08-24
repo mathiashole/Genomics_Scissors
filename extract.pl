@@ -12,8 +12,8 @@
 use strict;
 #use warnings;
 
-my $f1 = shift or die "Missing multifasta file 🔴\n";
-my $f2 = shift or die "Missing coordinate file (txt, gff or bed) 🔴\n";
+my $f1 = shift or die "\tMissing multifasta file 🔴\n";
+my $f2 = shift or die "\tMissing coordinate file (txt, gff or bed) 🔴\n";
 my $f3 = shift;
 my $f4 = shift;
 
@@ -30,7 +30,7 @@ sub extractor {
 		
 	my %hash_secuencias = leer_multi_fasta($archivo_multi_fasta);
 	
-	open (READ,$archivo_con_coordenadas) or die "This file does not exist $archivo_con_coordenadas 🔴\n";
+	open (READ,$archivo_con_coordenadas) or die "\tThis file does not exist $archivo_con_coordenadas 🔴\n";
 	while (<READ>) {
 		my ($nombre, $coor_incio, $coor_fin, $nombre_prot, @resto) =  split(/\s+/, $_);
 		my $contig = $hash_secuencias{$nombre};
@@ -66,7 +66,7 @@ sub leer_multi_fasta {
 	my $secuencias = '';
 	my $nombre_secuencias = '';
 	
-	open (READ,$archivo_multi_fasta) or die "this file does not exist $archivo_multi_fasta 🔴\n";
+	open (READ,$archivo_multi_fasta) or die "\tThis file does not exist $archivo_multi_fasta 🔴\n";
 	while(my $line = <READ>){
 
 		chomp($line);
