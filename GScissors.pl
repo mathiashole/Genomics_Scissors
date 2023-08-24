@@ -87,7 +87,9 @@ sub process_conversion {
 
 sub process_extract {
     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
-    process_f6(\$f6);
+
+    process_f6(\$f6); # define args $f6
+
     print "Start of format conversion $f4\n\n";
     # This section execute process_conversion() and save in variable
     my $prueba = process_conversion($f3, $f4);
