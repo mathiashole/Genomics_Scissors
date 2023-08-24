@@ -145,7 +145,7 @@ sub validate_fasta_format {
     if (check_fasta_format($file)) {
         print "$file is in FASTA format. Successful\n\n";
     } else {
-        die "Error: The file '$file' is not in valid FASTA format.\n";
+        die "Error: $file is not in valid FASTA format.❗\n";
     }
 }
 
