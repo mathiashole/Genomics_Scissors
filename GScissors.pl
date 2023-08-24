@@ -11,6 +11,8 @@ my $f4 = shift; #or die "Missing file in gff, bed or txt\n";
 my $f5 = shift; #or die "Missing output fasta file";
 my $f6 = shift;
 
+process_f6();
+
 # Check if a text file was provided as an argument
 # Function to show help
 
@@ -179,4 +181,14 @@ sub validation_and_execution_flow {
     }
 }
 
+sub process_f6 {
+    my ($f6) = @_;
 
+    if ($f6 eq "") {
+        $f6 = 0;
+    } else {
+        $f6 = 1;
+    }
+
+    return $f6;
+}
