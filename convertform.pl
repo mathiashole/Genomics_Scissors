@@ -49,7 +49,13 @@ if (($option eq "-bed" || $option eq "--bed") && $directories eq ".bed") {
 
     # If the option is -txt, the file is kept unchanged
     # Some additional verification can be added if needed
-    rename($input_file, $output_file) or die "Error renaming the file: $!";
+    #rename($input_file, $output_file) or die "Error renaming the file: $!";
+    my $data_ref = read_txt($input_file);
+
+    foreach my $row_ref (@$data_ref) {
+        print join("\t", @$row_ref), "\n";
+    }
+    #$input_file;
 
 } else {
 
@@ -115,3 +121,24 @@ sub convert_gff_to_txt {
     return \@data;
 }
 
+# Function to read TXT
+sub read_txt {
+    # my ($input_file, $output_file) = @_;
+    my ($input_file) = @_;
+
+    open(my $input_fh, "<", $input_file) or die "Cannot open input file: $! 🔴";
+   # open(my $output_fh, ">", $output_file) or die "Cannot open output file: $!";
+
+    my @data;
+
+    while (my $line = <$input_fh>) {
+        chomp $line;
+        print $line;
+    my @row = split("\t", $line);
+    push @data, \@row;
+    }
+
+    close($input_fh);
+   # close($output_fh);
+    return \@data;
+}
