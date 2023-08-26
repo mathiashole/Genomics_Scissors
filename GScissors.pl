@@ -90,7 +90,7 @@ sub process_extract {
 
     process_f6(\$f6); # define args $f6
 
-    print "Start of format conversion $f4\n\n";
+    print "Start of format conversion $f4 ✅\n\n";
     # This section execute process_conversion() and save in variable
     my $prueba = process_conversion($f3, $f4);
     
@@ -143,7 +143,7 @@ sub validate_fasta_format {
     my ($file) = @_;
 
     if (check_fasta_format($file)) {
-        print "$file is in FASTA format. Successful\n\n";
+        print "$file is in FASTA format. Successful ✅\n\n";
     } else {
         die "Error: $file is not in valid FASTA format. 🔴\n";
     }
@@ -156,14 +156,14 @@ sub validation_and_execution_flow {
     #print "$f1 $f2 $f3 $f4 $f5 $f6";
 
     if ($f1 eq '-fasta' || $f1 eq '--fasta') {
-        print "\nStart GScissots program\n\n";
-        print "Valid FASTA format. Processing...\n";
+        print "\nStart GScissots program ✅\n\n";
+        print "Valid FASTA format. Processing... ⏲\n";
         if (validate_fasta_format($f2)) {
             # Continuar aquí si la validación de formato FASTA es exitosa
             
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
-            print "Formato FASTA inválido: $f2\n";
+            print "Formato FASTA inválido: $f2 🔴\n";
             # Manejar el caso de formato inválido si es necesario
         }
     } elsif ($f3 eq '-txt' || $f3 eq '--text' ||
@@ -171,7 +171,7 @@ sub validation_and_execution_flow {
              $f3 eq '-bed' || $f3 eq '--bed') {
         if (validate_filename_format($f4)) {
             # Continuar aquí si el formato de archivo es válido
-            print "Formato de archivo válido: $f4\n";
+            print "Formato de archivo válido: $f4 ✅\n";
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
             print "\tFile format is invalid: $f4 🔴\n";
