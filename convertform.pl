@@ -27,7 +27,7 @@ $output_file .= ".txt";
 # print "Directories: $directories\n";
 
 # Read input file and perform conversion as per option
-if ($option eq "-bed" && $directories eq ".bed") {
+if (($option eq "-bed" || $option eq "--bed") && $directories eq ".bed") {
 
     my $data_ref = convert_bed_to_txt($input_file);
 
@@ -35,7 +35,7 @@ if ($option eq "-bed" && $directories eq ".bed") {
         print join("\t", @$row_ref), "\n";
     }
 
-} elsif ($option eq "-gff" && $directories eq ".gff") {
+} elsif (($option eq "-gff" || $option eq "--gff") && $directories eq ".gff") {
 
    # convert_gff_to_txt($input_file, $output_file);
    # convert_gff_to_txt($input_file);
@@ -45,7 +45,7 @@ if ($option eq "-bed" && $directories eq ".bed") {
         print join("\t", @$row_ref), "\n";
     }
 
-} elsif ($option eq "-txt" && $directories eq ".txt") {
+} elsif (($option eq "-txt" || $option eq "--text") && $directories eq ".txt") {
 
     # If the option is -txt, the file is kept unchanged
     # Some additional verification can be added if needed
