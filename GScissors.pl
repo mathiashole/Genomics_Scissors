@@ -159,27 +159,28 @@ sub validation_and_execution_flow {
         print "\nStart GScissots program ✅\n\n";
         print "Valid FASTA format. Processing... ⏲\n";
         if (validate_fasta_format($f2)) {
-            # Continuar aquí si la validación de formato FASTA es exitosa
+            # Continue here if FASTA format validation is successful
             
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
             print "Invalid FASTA format: $f2 🔴\n";
-            # Manejar el caso de formato inválido si es necesario
+            # Handle the case of invalid format if necessary
         }
     } elsif ($f3 eq '-txt' || $f3 eq '--text' ||
              $f3 eq '-gff' || $f3 eq '--gff' ||
              $f3 eq '-bed' || $f3 eq '--bed') {
         if (validate_filename_format($f4)) {
-            # Continuar aquí si el formato de archivo es válido
+            # Continue here if the file format is valid
             print "Valid file format: $f4 ✅\n";
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
             print "\tFile format is invalid: $f4 🔴\n";
-            # Manejar el caso de formato inválido si es necesario
+            # Handle the case of invalid format if necessary
+
         }
     } else {
         print "\tUnrecognized option: $f3 🔴\n";
-        # Manejar el caso de opción no reconocida si es necesario
+        # Handle the case of unrecognized option if necessary
     }
 }
 
