@@ -163,7 +163,7 @@ sub validation_and_execution_flow {
             
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
-            print "Formato FASTA inválido: $f2 🔴\n";
+            print "Invalid FASTA format: $f2 🔴\n";
             # Manejar el caso de formato inválido si es necesario
         }
     } elsif ($f3 eq '-txt' || $f3 eq '--text' ||
@@ -171,7 +171,7 @@ sub validation_and_execution_flow {
              $f3 eq '-bed' || $f3 eq '--bed') {
         if (validate_filename_format($f4)) {
             # Continuar aquí si el formato de archivo es válido
-            print "Formato de archivo válido: $f4 ✅\n";
+            print "Valid file format: $f4 ✅\n";
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
             print "\tFile format is invalid: $f4 🔴\n";
