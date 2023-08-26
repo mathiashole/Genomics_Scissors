@@ -92,10 +92,10 @@ sub process_extract {
 
     print "Start of format conversion $f4 ✅\n\n";
     # This section execute process_conversion() and save in variable
-    my $prueba = process_conversion($f3, $f4);
+    my $run_process_conversion = process_conversion($f3, $f4);
     
     # split array into line
-    my @arreglo = split("\n", $prueba);
+    my @arreglo = split("\n", $run_process_conversion);
     
     my $acumulated_output = '';
 
