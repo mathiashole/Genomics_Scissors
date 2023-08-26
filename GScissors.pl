@@ -90,7 +90,7 @@ sub process_extract {
 
     process_f6(\$f6); # define args $f6
 
-    print "Start of format conversion $f4 ✅\n\n";
+    print "✅\tStart of format conversion $f4\n";
     # This section execute process_conversion() and save in variable
     my $run_process_conversion = process_conversion($f3, $f4);
     
@@ -107,6 +107,8 @@ sub process_extract {
         #print $acumulated_output;
     }
     
+    print "✅\tConversion completed successfully\n\n";
+
     # Construct the path to the perl script file
     my $script_extract = "$Bin/extract.pl";
     print $script_extract;
@@ -143,9 +145,9 @@ sub validate_fasta_format {
     my ($file) = @_;
 
     if (check_fasta_format($file)) {
-        print "$file is in FASTA format. Successful ✅\n\n";
+        print "✅\tIt's in FASTA format: $file\n\n";
     } else {
-        die "Error: $file is not in valid FASTA format. 🔴\n";
+        die "🔴\tError it's not in valid FASTA format: $file\n";
     }
 }
 
@@ -156,8 +158,8 @@ sub validation_and_execution_flow {
     #print "$f1 $f2 $f3 $f4 $f5 $f6";
 
     if ($f1 eq '-fasta' || $f1 eq '--fasta') {
-        print "\nStart GScissots program ✅\n\n";
-        print "Valid FASTA format. Processing... ⏲\n";
+        print "\nStart GScissots program:\n\n";
+        print "FASTA format validation:\n";
         if (validate_fasta_format($f2)) {
             # Continue here if FASTA format validation is successful
             
