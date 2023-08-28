@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use FindBin qw($Bin);
 
-my $f1 = shift or die "Missing option. 🔴\n";
+my $f1 = shift or die "🔴\tMissing option.\n";
 my $f2 = shift; #or die "Missing input fasta file\n";
 my $f3 = shift; #or die "Missing option format -gff, -bed or -txt\n";
 my $f4 = shift; #or die "Missing file in gff, bed or txt\n";
@@ -23,7 +23,7 @@ if ($f1 eq '-h' || $f1 eq '--help') {
 } elsif ($f1 eq '-fasta' || $f1 eq '--fasta') {
     validation_and_execution_flow($f1, $f2, $f3, $f4, $f5, $f6);
 } else {
-    print "\tUnrecognized option: $f1 🔴\n\n \tCheck --help or manual\t🔍\n";
+    print "🔴\tUnrecognized option: $f1\n\n \tCheck --help or manual\t🔍\n";
 }
 
 ## Function to show help of the program
@@ -165,7 +165,7 @@ sub validation_and_execution_flow {
             
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
-            print "Invalid FASTA format: $f2 🔴\n";
+            print "🔴\tInvalid FASTA format: $f2\n";
             # Handle the case of invalid format if necessary
         }
     } elsif ($f3 eq '-txt' || $f3 eq '--text' ||
@@ -176,12 +176,12 @@ sub validation_and_execution_flow {
             print "Valid file format: $f4 ✅\n";
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
-            print "\tFile format is invalid: $f4 🔴\n";
+            print "🔴\tFile format is invalid: $f4\n";
             # Handle the case of invalid format if necessary
 
         }
     } else {
-        print "\tUnrecognized option: $f3 🔴\n";
+        print "🔴\tUnrecognized option: $f3\n";
         # Handle the case of unrecognized option if necessary
     }
 }
