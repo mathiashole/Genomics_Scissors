@@ -50,17 +50,20 @@ if ($option eq "-bed" || $option eq "--bed") {
         print "\t Invalid final tag. The end tag must be .gff 🔴\n\n \t Check --help or manual\t🔍 \n"
     }
 
-} elsif (($option eq "-txt" || $option eq "--text") && $directories eq ".txt") {
+} elsif ($option eq "-txt" || $option eq "--text") {
+    if ($directories eq ".txt") {
+        # If the option is -txt, the file is kept unchanged
+        # Some additional verification can be added if needed
+        #rename($input_file, $output_file) or die "Error renaming the file: $!";
+        my $data_ref = read_txt($input_file);
 
-    # If the option is -txt, the file is kept unchanged
-    # Some additional verification can be added if needed
-    #rename($input_file, $output_file) or die "Error renaming the file: $!";
-    my $data_ref = read_txt($input_file);
-
-    foreach my $row_ref (@$data_ref) {
-        print join("\t", @$row_ref), "\n";
+        foreach my $row_ref (@$data_ref) {
+            print join("\t", @$row_ref), "\n";
+        }
+        #$input_file;
+    } else {
+       print "\t Invalid final tag. The end tag must be .txt 🔴\n\n \t Check --help or manual\t🔍 \n" 
     }
-    #$input_file;
 
 } else {
 
