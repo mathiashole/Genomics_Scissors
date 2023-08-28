@@ -11,7 +11,7 @@ my $input_file = shift;
 
 # Check if all arguments are provided
 unless ($option && $input_file) {
-    die "\t Usage: perl convert.pl < -bed | -gff | -txt > input_file. 🔴\n\n \t Check --help or manual\t🔍\n";
+    die "🔴\tUsage: perl convert.pl < -bed | -gff | -txt > input_file.\n\n \t Check --help or manual\t🔍\n";
 }
 
 # Get the base name of the input file
@@ -35,7 +35,7 @@ if ($option eq "-bed" || $option eq "--bed") {
             print join("\t", @$row_ref), "\n";
         }
     } else {
-        print "\t Invalid final tag. The end tag must be .bed 🔴\n\n \t Check --help or manual\t🔍 \n"
+        print "🔴\tInvalid final tag. The end tag must be .bed\n\n \t Check --help or manual\t🔍 \n"
     }
 } elsif ($option eq "-gff" || $option eq "--gff") {
     if ($directories eq ".gff") {
@@ -47,7 +47,7 @@ if ($option eq "-bed" || $option eq "--bed") {
             print join("\t", @$row_ref), "\n";
         }
     } else {
-        print "\t Invalid final tag. The end tag must be .gff 🔴\n\n \t Check --help or manual\t🔍 \n"
+        print "🔴\tInvalid final tag. The end tag must be .gff\n\n \t Check --help or manual\t🔍 \n"
     }
 
 } elsif ($option eq "-txt" || $option eq "--text") {
@@ -62,12 +62,12 @@ if ($option eq "-bed" || $option eq "--bed") {
         }
         #$input_file;
     } else {
-       print "\t Invalid final tag. The end tag must be .txt 🔴\n \t Check --help or manual\t🔍 \n" 
+       print "🔴\tInvalid final tag. The end tag must be .txt\n \t Check --help or manual\t🔍 \n" 
     }
 
 } else {
 
-    die "\t Invalid option. Must be -bed, -gff, or -txt. 🔴\n \t Check --help or manual\t🔍 \n";
+    die "🔴\tInvalid option. Must be -bed, -gff, or -txt.\n \t Check --help or manual\t🔍 \n";
 
 }
 
@@ -104,7 +104,7 @@ sub convert_gff_to_txt {
     # my ($input_file, $output_file) = @_;
     my ($input_file) = @_;
 
-    open(my $input_fh, "<", $input_file) or die "Cannot open input file: $! 🔴";
+    open(my $input_fh, "<", $input_file) or die "🔴\tCannot open input file: $!";
    # open(my $output_fh, ">", $output_file) or die "Cannot open output file: $!";
 
     my @data;
@@ -134,7 +134,7 @@ sub read_txt {
     # my ($input_file, $output_file) = @_;
     my ($input_file) = @_;
 
-    open(my $input_fh, "<", $input_file) or die "Cannot open input file: $! 🔴";
+    open(my $input_fh, "<", $input_file) or die "🔴\tCannot open input file: $!";
    # open(my $output_fh, ">", $output_file) or die "Cannot open output file: $!";
 
     my @data;
