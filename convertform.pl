@@ -27,22 +27,27 @@ $output_file .= ".txt";
 # print "Directories: $directories\n";
 
 # Read input file and perform conversion as per option
-if (($option eq "-bed" || $option eq "--bed") && $directories eq ".bed") {
+if ($option eq "-bed" || $option eq "--bed") {
+    if ($directories eq ".bed") {
+        my $data_ref = convert_bed_to_txt($input_file);
 
-    my $data_ref = convert_bed_to_txt($input_file);
-
-    foreach my $row_ref (@$data_ref) {
-        print join("\t", @$row_ref), "\n";
+        foreach my $row_ref (@$data_ref) {
+            print join("\t", @$row_ref), "\n";
+        }
+    } else {
+        print "\t Invalid final tag. The end tag must be .bed 🔴\n\n \t Check --help or manual\t🔍 \n"
     }
+} elsif ($option eq "-gff" || $option eq "--gff") {
+    if ($directories eq ".gff") {
+    # convert_gff_to_txt($input_file, $output_file);
+    # convert_gff_to_txt($input_file);
+        my $data_ref = convert_gff_to_txt($input_file);
 
-} elsif (($option eq "-gff" || $option eq "--gff") && $directories eq ".gff") {
-
-   # convert_gff_to_txt($input_file, $output_file);
-   # convert_gff_to_txt($input_file);
-    my $data_ref = convert_gff_to_txt($input_file);
-
-    foreach my $row_ref (@$data_ref) {
-        print join("\t", @$row_ref), "\n";
+        foreach my $row_ref (@$data_ref) {
+            print join("\t", @$row_ref), "\n";
+        }
+    } else {
+        print "\t Invalid final tag. The end tag must be .gff 🔴\n\n \t Check --help or manual\t🔍 \n"
     }
 
 } elsif (($option eq "-txt" || $option eq "--text") && $directories eq ".txt") {
