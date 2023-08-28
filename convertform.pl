@@ -62,12 +62,12 @@ if ($option eq "-bed" || $option eq "--bed") {
         }
         #$input_file;
     } else {
-       print "\t Invalid final tag. The end tag must be .txt 🔴\n\n \t Check --help or manual\t🔍 \n" 
+       print "\t Invalid final tag. The end tag must be .txt 🔴\n \t Check --help or manual\t🔍 \n" 
     }
 
 } else {
 
-    die "\t Invalid option. Must be -bed, -gff, or -txt. 🔴\n\n \t Check --help or manual\t🔍 \n";
+    die "\t Invalid option. Must be -bed, -gff, or -txt. 🔴\n \t Check --help or manual\t🔍 \n";
 
 }
 
