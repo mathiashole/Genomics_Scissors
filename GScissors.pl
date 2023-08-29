@@ -11,8 +11,8 @@ my $f4 = shift; #or die "Missing file in gff, bed or txt\n";
 my $f5 = shift; #or die "Missing output fasta file";
 my $f6 = shift;
 
-#process_f6();
 
+my $f6 = f6_define($f6);
 # Check if a text file was provided as an argument
 # Function to show help
 
@@ -87,8 +87,6 @@ sub process_conversion {
 
 sub process_extract {
     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
-
-    process_f6(\$f6); # define args $f6
 
     print "✅\tStart of format conversion $f4\n";
     # This section execute process_conversion() and save in variable
@@ -186,12 +184,14 @@ sub validation_and_execution_flow {
     }
 }
 
-sub process_f6 {
-    my ($f6_ref) = @_;
+sub f6_define {
+    my ($var) = @_;
 
-    if ($$f6_ref eq "") {
-        $$f6_ref = 0;
+    if (defined $var) {
+        $var = 1;  # The variable is defined
     } else {
-        $$f6_ref = 1;
+        $var = 0;  # The variable is not defined
     }
+
+    return $var;
 }
