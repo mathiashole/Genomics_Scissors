@@ -173,7 +173,7 @@ sub validation_and_execution_flow {
              $f3 eq '-bed' || $f3 eq '--bed') {
         if (validate_filename_format($f4)) {
             # Continue here if the file format is valid
-            print "Valid file format: $f4 ✅\n";
+            print "✅\tValid file format: $f4\n";
             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
         } else {
             print "🔴\tFile format is invalid: $f4\n";
