@@ -83,6 +83,10 @@ sub convert_bed_to_txt {
 
     while (my $line = <$input_fh>) {
         chomp $line;
+        
+        # Ignore lines beginning with "#"
+        next if $line =~ /^#/;
+
         my @fields = split("\t", $line);
         my $contig = $fields[0];
         my $start = $fields[1];
@@ -112,6 +116,8 @@ sub convert_gff_to_txt {
     while (my $line = <$input_fh>) {
         chomp $line;
         #print "Line read: $line\n"; # debug
+        # Ignore lines beginning with "#"
+        next if $line =~ /^#/;
         #print "Fields: @fields\n"; # debug
         my @fields = split("\t", $line);
         my $contig = $fields[0];
