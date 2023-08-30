@@ -150,6 +150,40 @@ sub validate_fasta_format {
 }
 
 
+# sub validation_and_execution_flow {
+#     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
+
+#     #print "$f1 $f2 $f3 $f4 $f5 $f6";
+
+#     if ($f1 eq '-fasta' || $f1 eq '--fasta') {
+#         print "\nStart GScissots program:\n\n";
+#         print "FASTA format validation:\n";
+#         if (validate_fasta_format($f2)) {
+#             # Continue here if FASTA format validation is successful
+            
+#             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
+#         } else {
+#             print "🔴\tInvalid FASTA format: $f2\n";
+#             # Handle the case of invalid format if necessary
+#         }
+#     } elsif ($f3 eq '-txt' || $f3 eq '--text' ||
+#              $f3 eq '-gff' || $f3 eq '--gff' ||
+#              $f3 eq '-bed' || $f3 eq '--bed') {
+#         if (validate_filename_format($f4)) {
+#             # Continue here if the file format is valid
+#             print "✅\tValid file format: $f4\n";
+#             process_extract($f1, $f2, $f3, $f4, $f5, $f6);
+#         } else {
+#             print "🔴\tFile format is invalid: $f4\n";
+#             # Handle the case of invalid format if necessary
+
+#         }
+#     } else {
+#         print "🔴\tUnrecognized option: $f3\n";
+#         # Handle the case of unrecognized option if necessary
+#     }
+# }
+
 sub validation_and_execution_flow {
     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
 
@@ -160,26 +194,21 @@ sub validation_and_execution_flow {
         print "FASTA format validation:\n";
         if (validate_fasta_format($f2)) {
             # Continue here if FASTA format validation is successful
-            
-            process_extract($f1, $f2, $f3, $f4, $f5, $f6);
-        } else {
-            print "🔴\tInvalid FASTA format: $f2\n";
-            # Handle the case of invalid format if necessary
-        }
-    } elsif ($f3 eq '-txt' || $f3 eq '--text' ||
-             $f3 eq '-gff' || $f3 eq '--gff' ||
-             $f3 eq '-bed' || $f3 eq '--bed') {
-        if (validate_filename_format($f4)) {
-            # Continue here if the file format is valid
-            print "✅\tValid file format: $f4\n";
-            process_extract($f1, $f2, $f3, $f4, $f5, $f6);
-        } else {
-            print "🔴\tFile format is invalid: $f4\n";
-            # Handle the case of invalid format if necessary
+            if ($f3 eq '-txt' || $f3 eq '--text' ||
+                $f3 eq '-gff' || $f3 eq '--gff' ||
+                $f3 eq '-bed' || $f3 eq '--bed') {
+                # ADD OTHER CONDITIONAL VALIDATION FILE FORMAT GFF BED or TXT!!!!
+                process_extract($f1, $f2, $f3, $f4, $f5, $f6);
 
+            } else {
+                print "Error\tUnrecognized option: $f3\n";
+            }
+        } else {
+            print "Error\tInvalid FASTA format: $f2\n";
+            # Handle the case of invalid format if necessary
         }
     } else {
-        print "🔴\tUnrecognized option: $f3\n";
+        print "Error\tUnrecognized option: $f1\n";
         # Handle the case of unrecognized option if necessary
     }
 }
