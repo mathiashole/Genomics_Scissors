@@ -78,7 +78,7 @@ sub process_conversion {
     # Command in perl to be executed
     my $convert_run = "perl $script_convert $f3 $f4";
     
-    #my @arreglo = system($convert_run);
+    #my @array = system($convert_run);
 
     my $output = `$convert_run`;  # Capture command output
 
@@ -93,11 +93,11 @@ sub process_extract {
     my $run_process_conversion = process_conversion($f3, $f4);
     
     # split array into line
-    my @arreglo = split("\n", $run_process_conversion);
+    my @array = split("\n", $run_process_conversion);
     
     my $acumulated_output = '';
 
-    foreach my $line (@arreglo) {
+    foreach my $line (@array) {
        # Work with each line in the array
         #print "$line\n";
         # Accumulate line in variable
@@ -113,7 +113,7 @@ sub process_extract {
     # Command in perl to be executed
     my $extract_run = "perl $script_extract $f2 $acumulated_output $f4 $f5 $f6";
     
-    #my @arreglo = system($convert_run);
+    #my @array = system($convert_run);
 
     system($extract_run);  # Capture command output
 
