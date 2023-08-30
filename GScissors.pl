@@ -88,7 +88,7 @@ sub process_conversion {
 sub process_extract {
     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
 
-    print "✅\tStart of format conversion $f4\n";
+    print "Start of format conversion $f4:\n";
     # This section execute process_conversion() and save in variable
     my $run_process_conversion = process_conversion($f3, $f4);
     
