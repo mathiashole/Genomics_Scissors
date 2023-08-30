@@ -109,11 +109,11 @@ sub process_extract {
 
     # Construct the path to the perl script file
     my $script_extract = "$Bin/extract.pl";
-    print $script_extract;
+    
     # Command in perl to be executed
     my $extract_run = "perl $script_extract $f2 $acumulated_output $f4 $f5 $f6";
     
-    #my @array = system($convert_run);
+    print "Start sequence extraction:";
 
     system($extract_run);  # Capture command output
 
