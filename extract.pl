@@ -12,8 +12,8 @@
 use strict;
 #use warnings;
 
-my $f1 = shift or die "\nError\tMissing multifasta file: $f1\n";
-my $f2 = shift or die "\nError\tMissing coordinate file (txt, gff or bed): $f2\n";
+my $f1 = shift or die "\nError\tMissing multifasta file\n";
+my $f2 = shift or die "\nError\tMissing coordinate file (txt, gff or bed)\n";
 my $f3 = shift;
 my $f4 = shift;
 
