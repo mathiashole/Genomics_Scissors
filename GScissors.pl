@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use FindBin qw($Bin);
 
-my $f1 = shift or die "🔴\tMissing option.\n";
+my $f1 = shift or die "Error\tMissing option.\n";
 my $f2 = shift; #or die "Missing input fasta file\n";
 my $f3 = shift; #or die "Missing option format -gff, -bed or -txt\n";
 my $f4 = shift; #or die "Missing file in gff, bed or txt\n";
@@ -23,7 +23,7 @@ if ($f1 eq '-h' || $f1 eq '--help') {
 } elsif ($f1 eq '-fasta' || $f1 eq '--fasta') {
     validation_and_execution_flow($f1, $f2, $f3, $f4, $f5, $f6);
 } else {
-    print "🔴\tUnrecognized option: $f1\n\n \tCheck --help or manual\t🔍\n";
+    print "Error\tUnrecognized option: $f1\n\n \tCheck --help or manual\t🔍\n";
 }
 
 ## Function to show help of the program
@@ -105,7 +105,7 @@ sub process_extract {
         #print $acumulated_output;
     }
     
-    print "✅\tConversion completed successfully\n\n";
+    print "Successful\tConversion completed\n\n";
 
     # Construct the path to the perl script file
     my $script_extract = "$Bin/extract.pl";
@@ -143,9 +143,9 @@ sub validate_fasta_format {
     my ($file) = @_;
 
     if (check_fasta_format($file)) {
-        print "✅\tIt's in FASTA format: $file\n\n";
+        print "Successful\tIt's FASTA format: $file\n\n";
     } else {
-        die "🔴\tError it's not in valid FASTA format: $file\n";
+        die "Error\tit's not valid FASTA format: $file\n";
     }
 }
 
