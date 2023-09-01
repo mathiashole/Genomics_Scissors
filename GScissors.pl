@@ -9,12 +9,13 @@ my $f2 = shift; #or die "Missing input fasta file\n";
 my $f3 = shift; #or die "Missing option format -gff, -bed or -txt\n";
 my $f4 = shift; #or die "Missing file in gff, bed or txt\n";
 my $f5 = shift; #or die "Missing output fasta file";
-my $f6 = shift;
+#my $f6 = shift;
 
 
-my $f6 = f6_define($f6);
+my $f6 = f6_define(shift);
 # Check if a text file was provided as an argument
 # Function to show help
+print "$f6";
 
 if ($f1 eq '-h' || $f1 eq '--help') {
     show_help();
