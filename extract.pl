@@ -102,12 +102,12 @@ sub extraer_secuencia {
 		$retorno = substr($secuencia,$coordenada_inicio,$largo);
 	}else{
 		my $seq_aux = substr($secuencia,$coordenada_fin,$largo);
-		$retorno = inversa_complementaria(\$seq_aux);
+		$retorno = complementary_inverse(\$seq_aux);
 	}
 	return $retorno;
 }
 
-sub inversa_complementaria {
+sub complementary_inverse {
 	my $dna_seq_ref = $_[0];
 	my $dna_seq_rev_comp = reverse $$dna_seq_ref;
 	$dna_seq_rev_comp =~ tr/ACGTacgt/TGCAtgca/;
