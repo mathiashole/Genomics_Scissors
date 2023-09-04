@@ -108,7 +108,7 @@ sub extraer_secuencia {
 }
 
 sub complementary_inverse {
-	my $dna_seq_ref = $_[0];
+	my ($dna_seq_ref) = @_;
 	my $dna_seq_rev_comp = reverse $$dna_seq_ref;
 	$dna_seq_rev_comp =~ tr/ACGTacgt/TGCAtgca/;
 	return $dna_seq_rev_comp;
