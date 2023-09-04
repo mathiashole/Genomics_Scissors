@@ -34,7 +34,7 @@ sub extractor {
 	while (<READ>) {
 		my ($nombre, $coor_incio, $coor_fin, $nombre_prot, @resto) =  split(/\s+/, $_);
 		my $contig = $hash_secuencias{$nombre};
-		my $secuencia = extraer_secuencia($contig,$coor_incio,$coor_fin);
+		my $secuencia = extract_sequence($contig,$coor_incio,$coor_fin);
 		
 		formatear_secuencia(\$secuencia);
 		
@@ -87,7 +87,7 @@ sub leer_multi_fasta {
 	return %hash_retorno;
 }
 
-sub extraer_secuencia {
+sub extract_sequence {
 	my ($secuencia, $coordenada_inicio, $coordenada_fin) = @_;
 
     $coordenada_inicio--;
