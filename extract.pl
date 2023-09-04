@@ -88,13 +88,15 @@ sub leer_multi_fasta {
 }
 
 sub extraer_secuencia {
-	my $secuencia = $_[0];
-	my $coordenada_inicio = $_[1];
-	my $coordenada_fin = $_[2];
+	my ($secuencia, $coordenada_inicio, $coordenada_fin) = @_;
+	# my $secuencia = $_[0];
+	# my $coordenada_inicio = $_[1];
+	# my $coordenada_fin = $_[2];
 #	if ($coordenada_inicio == 0){ die "the start coordinate cannot take values ​​less than one";}
 	
 	$coordenada_inicio--;
 	$coordenada_fin--;
+
 	my $largo = abs ($coordenada_fin-$coordenada_inicio)+1;
 	my $retorno = '';
  	
@@ -102,7 +104,7 @@ sub extraer_secuencia {
 		$retorno = substr($secuencia,$coordenada_inicio,$largo);
 	}else{
 		my $seq_aux = substr($secuencia,$coordenada_fin,$largo);
-		$retorno = complementary_inverse(\$seq_aux);
+		$retorno = complementary_inverse($seq_aux);
 	}
 	return $retorno;
 }
