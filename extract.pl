@@ -88,22 +88,22 @@ sub leer_multi_fasta {
 }
 
 sub extract_sequence {
-	my ($secuencia, $coordenada_inicio, $coordenada_fin) = @_;
+	my ($sequence, $start_coordinate, $end_coordinate) = @_;
 
-    $coordenada_inicio--;
-    $coordenada_fin--;
+    $start_coordinate--;
+    $end_coordinate--;
 
-    my $largo = abs($coordenada_fin - $coordenada_inicio) + 1;
-    my $retorno = '';
+    my $length = abs($end_coordinate - $start_coordinate) + 1;
+    my $result = '';
 
-    if ($coordenada_inicio <= $coordenada_fin) {
-        $retorno = substr($secuencia, $coordenada_inicio, $largo);
+    if ($start_coordinate <= $end_coordinate) {
+        $result = substr($sequence, $start_coordinate, $length);
     } else {
-        my $seq_aux = substr($secuencia, $coordenada_fin, $largo);
-        $retorno = inversa_complementaria($seq_aux);
+        my $seq_aux = substr($sequence, $end_coordinate, $length);
+        $result = reverse_complement($seq_aux);
     }
 
-    return $retorno;
+    return $result;
 }
 
 sub complementary_inverse {
