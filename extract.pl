@@ -28,7 +28,7 @@ sub extractor {
 	my $out_put = $_[2];
 	my $flag_not_to_upper = $_[3];
 		
-	my %hash_secuencias = leer_multi_fasta($archivo_multi_fasta);
+	my %hash_secuencias = read_multifasta($archivo_multi_fasta);
 	
 	open (READ,$archivo_con_coordenadas) or die "\nError\tThis file does not exist $archivo_con_coordenadas\n";
 	while (<READ>) {
@@ -60,7 +60,7 @@ sub formatear_secuencia{
 	$$secuencia =~ s/(.{80})/$1\n/g;
 }
 
-sub leer_multi_fasta {
+sub read_multifasta {
 	my $archivo_multi_fasta = $_[0];
 	my %hash_retorno = ();
 	my $secuencias = '';
