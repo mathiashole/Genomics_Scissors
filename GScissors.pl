@@ -15,7 +15,6 @@ my $f5 = shift; #or die "Missing output fasta file";
 my $f6 = f6_define(shift);
 # Check if a text file was provided as an argument
 # Function to show help
-print "$f6";
 
 if ($f1 eq '-h' || $f1 eq '--help') {
     show_help();
