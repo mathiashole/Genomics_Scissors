@@ -113,8 +113,14 @@ sub process_extract {
     
     print "Start sequence extraction:";
 
-    system($extract_run);  # Capture command output
+    #system($extract_run);  # Capture command output
+    my $exit_code = system($extract_run);  # Capture command exit code
 
+    if ($exit_code == 0) {
+        print "\nSuccessful\tExtraction completed\n\n";
+    } else {
+        print "\nError\tExtraction faild: $exit_code\n";
+    }
     #another_cuntion(la, la, la, $acumulated_output)
 }
 
