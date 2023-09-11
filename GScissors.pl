@@ -100,10 +100,14 @@ sub process_extract {
         #print "$line\n";
         # Accumulate line in variable
         my $acumulated_output .= "$line\n";
-        #print $acumulated_output;
+
     }
     
-    print "Successful\tConversion completed\n\n";
+    if ($@) {
+        print "Error\tConversion faild$@\n";
+    } else {
+        print "Successful\tConversion completed\n\n";
+    }
 
     # Construct the path to the perl script file
     my $script_extract = "$Bin/extract.pl";
@@ -121,7 +125,7 @@ sub process_extract {
     } else {
         print "\nError\tExtraction faild: $exit_code\n";
     }
-    #another_cuntion(la, la, la, $acumulated_output)
+
 }
 
 sub check_fasta_format {
