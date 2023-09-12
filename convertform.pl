@@ -11,7 +11,7 @@ my $input_file = shift;
 
 # Check if all arguments are provided
 unless ($option && $input_file) {
-    die "Error\tUsage: perl convert.pl < -bed | -gff | -txt > input_file.\n\n \t Check --help or manual\t🔍\n";
+    die "Error\tUsage: perl convert.pl < -bed | -gff | -txt > input_file.\n\n \t Check --help or manual\tn";
 }
 
 # Get the base name of the input file
@@ -30,7 +30,7 @@ if ($option eq "-bed" || $option eq "--bed") {
             print join("\t", @$row_ref), "\n";
         }
     } else {
-        print "Error\tInvalid final tag. The end tag must be .bed\n\n \t Check --help or manual\t🔍 \n"
+        print "Error\tInvalid final tag. The end tag must be .bed\n\n \t Check --help or manual\t\n"
     }
 } elsif ($option eq "-gff" || $option eq "--gff") {
     if ($directories eq ".gff") {
@@ -41,7 +41,7 @@ if ($option eq "-bed" || $option eq "--bed") {
             print join("\t", @$row_ref), "\n";
         }
     } else {
-        print "Error\tInvalid final tag. The end tag must be .gff\n\n \t Check --help or manual\t🔍 \n"
+        print "Error\tInvalid final tag. The end tag must be .gff\n\n \t Check --help or manual\t\n"
     }
 
 } elsif ($option eq "-txt" || $option eq "--text") {
@@ -54,12 +54,12 @@ if ($option eq "-bed" || $option eq "--bed") {
         }
         #$input_file;
     } else {
-       print "Error\tInvalid final tag. The end tag must be .txt\n \t Check --help or manual\t🔍 \n" 
+       print "Error\tInvalid final tag. The end tag must be .txt\n \t Check --help or manual\t\n" 
     }
 
 } else {
 
-    die "Error\tInvalid option. Must be -bed, -gff, or -txt.\n \t Check --help or manual\t🔍 \n";
+    die "Error\tInvalid option. Must be -bed, -gff, or -txt.\n \t Check --help or manual\t\n";
 
 }
 
