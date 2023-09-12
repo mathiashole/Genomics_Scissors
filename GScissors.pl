@@ -34,6 +34,7 @@ sub show_help {
 
     -h, --help		Show this help.
     -v, --version	Show the version of the program.
+    -fasta, --fasta Your sequence data format.
     -gff, --gff		If your data is gff format.
 	-bed, --bed		If your data is bed format.
     -txt, --text	If your data is txt format.
