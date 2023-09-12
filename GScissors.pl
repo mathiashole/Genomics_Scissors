@@ -50,7 +50,6 @@ sub show_help {
 
   📨 CONTACT
     https://github.com/mathiashole
-    https://twitter.com/joaquinmangino
 
     MIT © Mathias Mangino
 HELP
