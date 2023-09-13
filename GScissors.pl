@@ -5,15 +5,15 @@ use warnings;
 use FindBin qw($Bin);
 
 my $f1 = shift or die "Error\tMissing option.\n";
-my $f2 = shift; #or die "Missing input fasta file\n";
-my $f3 = shift; #or die "Missing option format -gff, -bed or -txt\n";
-my $f4 = shift; #or die "Missing file in gff, bed or txt\n";
-my $f5 = shift; #or die "Missing output fasta file";
+my $f2 = shift;
+my $f3 = shift;
+my $f4 = shift;
+my $f5 = shift;
 
 my $f6 = f6_define(shift);
 # Check if a text file was provided as an argument
-# Function to show help
 
+# Function to show help
 if ($f1 eq '-h' || $f1 eq '--help') {
     show_help();
 } elsif ($f1 eq '-v' || $f1 eq '--version') {
@@ -69,16 +69,12 @@ sub validate_filename_format {
 
 sub process_conversion {
     my ($f3, $f4) = @_;
-    
     # Construct the path to the perl script file
     my $script_convert = "$Bin/convertform.pl";
-
     # Command in perl to be executed
     my $convert_run = "perl $script_convert $f3 $f4";
-    
-    #my @array = system($convert_run);
-
-    my $output = `$convert_run`;  # Capture command output
+    # Capture command output
+    my $output = `$convert_run`;  
 
     return $output;
 }
@@ -125,7 +121,6 @@ sub process_extract {
     } else {
         print "\nError\tExtraction faild: $exit_code\n";
     }
-
 }
 
 sub check_fasta_format {
