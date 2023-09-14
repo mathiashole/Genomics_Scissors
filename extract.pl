@@ -1,16 +1,7 @@
 #!/usr/bin/perl
 
-# Module extract.pl
-# Description:  Extract streams in fasta format
-# Author: Miguel Ponce de Leon
-# Date: 13-02-2008
-# Version: 1.1.0
-# Author: Mathias Mangino
-# Date 10-05-2021
-# Version: 1.1.1
-
 use strict;
-#use warnings;
+use warnings;
 
 my $f1 = shift or die "\nError\tMissing multifasta file\n";
 my $f2 = shift or die "\nError\tMissing coordinate file (txt, gff or bed)\n";
