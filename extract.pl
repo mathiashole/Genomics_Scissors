@@ -18,10 +18,8 @@ sub extractor {
 		
 	my %hash_sequence = read_fasta($fasta_file);
 	
-	#open (READ,$coordinate_file) or die "\nError\tThis file does not exist $coordinate_file\n";
 	open(my $coordinate_fh, '<', $coordinate_file) or die "\nError\tThis file does not exist $coordinate_file: $!\n";
 	while (<$coordinate_fh>) {
-	#while (<READ>) {
 		my ($name, $start, $end, $seq_name, @rest) =  split(/\s+/, $_);
 		my $contig = $hash_sequence{$name};
 		my $secuencia = extract_sequence($contig,$start,$end);
@@ -42,7 +40,6 @@ sub extractor {
 			print "$fasta_string";
 		}
 	}
-	#close(READ);
 	close($coordinate_fh);
 }
 
