@@ -56,7 +56,7 @@ sub read_fasta {
     my ($fasta_file) = @_;
     my %sequences;
 
-    open(my $fasta_fh, '<', $fasta_file) or die "Error al abrir el archivo FASTA: $!\n";
+    open(my $fasta_fh, '<', $fasta_file) or die "Error\topening FASTA file: $!\n";
 
     my $current_name = "";
     my $sequence = "";
