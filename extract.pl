@@ -28,7 +28,7 @@ sub extractor {
 	my $out_put = $_[2];
 	my $flag_not_to_upper = $_[3];
 		
-	my %hash_secuencias = read_multifasta($archivo_multi_fasta);
+	my %hash_secuencias = read_fasta($archivo_multi_fasta);
 	
 	open (READ,$archivo_con_coordenadas) or die "\nError\tThis file does not exist $archivo_con_coordenadas\n";
 	while (<READ>) {
@@ -60,31 +60,34 @@ sub formatear_secuencia{
 	$$secuencia =~ s/(.{80})/$1\n/g;
 }
 
-sub read_multifasta {
-	my $archivo_multi_fasta = $_[0];
-	my %hash_retorno = ();
-	my $secuencias = '';
-	my $nombre_secuencias = '';
-	
-	open (READ,$archivo_multi_fasta) or die "Error\tThis file does not exist $archivo_multi_fasta\n";
-	while(my $line = <READ>){
 
-		chomp($line);
-		
-		if($line =~ />(.*)/) {
-        		if($secuencias) { $hash_retorno{$nombre_secuencias} = $secuencias ; }
-        		$nombre_secuencias = $1;
-			$nombre_secuencias =~ s/ .*//;
-        		$secuencias = '';
-		}else {
-			$line =~ s/\s+//g;
-        		$secuencias .= $line;
-   		}
-	}
-	$hash_retorno{$nombre_secuencias} = $secuencias;
-	close(READ);
-	
-	return %hash_retorno;
+sub read_fasta {
+    my ($fasta_file) = @_;
+    my %sequences;
+
+    open(my $fasta_fh, '<', $fasta_file) or die "Error al abrir el archivo FASTA: $!\n";
+
+    my $current_name = "";
+    my $sequence = "";
+
+    while (<$fasta_fh>) {
+        chomp;
+        if (/^>(\S+)/) {
+            if ($current_name) {
+                $sequences{$current_name} = $sequence;
+            }
+            $current_name = $1;
+            $sequence = "";
+        } else {
+            $sequence .= $_;
+        }
+    }
+
+    $sequences{$current_name} = $sequence if $current_name;
+
+    close($fasta_fh);
+
+    return %sequences;
 }
 
 sub extract_sequence {
