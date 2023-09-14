@@ -14,39 +14,43 @@ extractor($f1,$f2,$f3,$f4);
 
  
 sub extractor {
-	my $archivo_multi_fasta = $_[0];
-	my $archivo_con_coordenadas = $_[1];
-	my $out_put = $_[2];
-	my $flag_not_to_upper = $_[3];
+	# my $fasta_file = $_[0];
+	# my $coordinate_file = $_[1];
+	# my $output_file = $_[2];
+	# my $flag_not_to_upper = $_[3];
+	my ($fasta_file, $coordinate_file, $output_file, $flag_not_to_upper) = @_;
 		
-	my %hash_secuencias = read_fasta($archivo_multi_fasta);
+	my %hash_sequence = read_fasta($fasta_file);
 	
-	open (READ,$archivo_con_coordenadas) or die "\nError\tThis file does not exist $archivo_con_coordenadas\n";
-	while (<READ>) {
-		my ($nombre, $coor_incio, $coor_fin, $nombre_prot, @resto) =  split(/\s+/, $_);
-		my $contig = $hash_secuencias{$nombre};
-		my $secuencia = extract_sequence($contig,$coor_incio,$coor_fin);
+	#open (READ,$coordinate_file) or die "\nError\tThis file does not exist $coordinate_file\n";
+	open(my $coordinate_fh, '<', $coordinate_file) or die "\nError\tThis file does not exist $coordinate_file: $!\n";
+	while (<$coordinate_fh>) {
+	#while (<READ>) {
+		my ($name, $start, $end, $seq_name, @rest) =  split(/\s+/, $_);
+		my $contig = $hash_sequence{$name};
+		my $secuencia = extract_sequence($contig,$start,$end);
 		
-		formatear_secuencia(\$secuencia);
+		format_sequence(\$secuencia);
 		
 		unless($flag_not_to_upper){
 			$secuencia = uc($secuencia);
 		}
 		
-		my $fasta_string = ">$nombre"."_$nombre_prot [$coor_incio $coor_fin] ".join(" ",@resto)."\n".$secuencia."\n";;
+		my $fasta_string = ">$name"."_$seq_name [$start $end] ".join(" ",@rest)."\n".$secuencia."\n";;
 		
-		if ($out_put){
-			open(FILE,">>./$out_put");
+		if ($output_file){
+			open(FILE,">>./$output_file");
 			print FILE "$fasta_string";
 			close(FILE);
 		}else{
 			print "$fasta_string";
 		}
 	}
-	close(READ);
+	#close(READ);
+	close($coordinate_fh);
 }
 
-sub formatear_secuencia{
+sub format_sequence{
 	my $secuencia = $_[0];
 	$$secuencia =~ s/(.{80})/$1\n/g;
 }
