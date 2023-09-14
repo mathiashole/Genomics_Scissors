@@ -97,6 +97,26 @@ sub extract_sequence {
     return $result;
 }
 
+sub extract_aminoacid_sequence {
+    my ($sequence, $start_coordinate, $end_coordinate) = @_;
+
+    $start_coordinate--;
+    $end_coordinate--;
+
+    my $length = abs($end_coordinate - $start_coordinate) + 1;
+    my $result = '';
+
+    if ($start_coordinate <= $end_coordinate) {
+        $result = substr($sequence, $start_coordinate, $length);
+    } else {
+        my $seq_aux = substr($sequence, $end_coordinate, $length);
+        $result = $seq_aux;
+    }
+
+    return $result;
+}
+
+
 sub complementary_inverse {
 	my ($dna_seq_ref) = @_;
 	my $dna_seq_rev_comp = reverse $$dna_seq_ref;
