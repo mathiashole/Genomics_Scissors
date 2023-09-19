@@ -70,7 +70,7 @@ sub validate_filename_format {
 sub process_conversion {
     my ($f3, $f4) = @_;
     # Construct the path to the perl script file
-    my $script_convert = "$Bin/convertform.pl";
+    my $script_convert = "$Bin/convertform.pl"; # VARIABLE GLOBAL
     # Command in perl to be executed
     my $convert_run = "perl $script_convert $f3 $f4";
     # Capture command output
@@ -106,7 +106,7 @@ sub process_extract {
     }
 
     # Construct the path to the perl script file
-    my $script_extract = "$Bin/extract.pl";
+    my $script_extract = "$Bin/extract.pl"; # VARIABLE GLOBAL
     
     # Command in perl to be executed
     my $extract_run = "perl $script_extract $f2 $acumulated_output $f4 $f5 $f6";
