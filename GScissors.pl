@@ -4,6 +4,9 @@ use strict;
 use warnings;
 use FindBin qw($Bin);
 
+my $CONVERT_SCRIPT = "$Bin/convertform.pl";
+my $EXTRACT_SCRIPT = "$Bin/extract.pl";
+
 my $f1 = shift or die "Error\tMissing option.\n";
 my $f2 = shift;
 my $f3 = shift;
@@ -69,10 +72,8 @@ sub validate_filename_format {
 
 sub process_conversion {
     my ($f3, $f4) = @_;
-    # Construct the path to the perl script file
-    my $script_convert = "$Bin/convertform.pl"; # VARIABLE GLOBAL
-    # Command in perl to be executed
-    my $convert_run = "perl $script_convert $f3 $f4";
+
+    my $convert_run = "perl $CONVERT_SCRIPT $f3 $f4";
     # Capture command output
     my $output = `$convert_run`;  
 
@@ -104,12 +105,9 @@ sub process_extract {
     } else {
         print "Successful\tConversion completed\n\n";
     }
-
-    # Construct the path to the perl script file
-    my $script_extract = "$Bin/extract.pl"; # VARIABLE GLOBAL
     
     # Command in perl to be executed
-    my $extract_run = "perl $script_extract $f2 $acumulated_output $f4 $f5 $f6";
+    my $extract_run = "perl $EXTRACT_SCRIPT $f2 $acumulated_output $f4 $f5 $f6";
     
     print "Start sequence extraction:";
 
