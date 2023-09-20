@@ -31,11 +31,11 @@ sub extractor {
 			$secuencia = uc($secuencia);
 		}
 		
-        my $output_path = "$Bin../output/$output_file";
+        #my $output_path = "../output/$output_file";
 		my $fasta_string = ">$name"."_$seq_name [$start $end] ".join(" ",@rest)."\n".$secuencia."\n";;
 		
 		if ($output_file){
-			open(FILE,">>./$output_path"); #$output_file
+			open(FILE,">>./$output_file"); #$output_path
 			print FILE "$fasta_string";
 			close(FILE);
 		}else{
