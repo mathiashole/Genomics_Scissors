@@ -7,12 +7,12 @@ use FindBin qw($Bin);
 my $CONVERT_SCRIPT = "$Bin/convertform.pl";
 my $EXTRACT_SCRIPT = "$Bin/extract.pl";
 
-my $f1 = shift or die "Error\tMissing option.\n";
-my $f2 = shift;
-my $f3 = shift;
-my $f4 = shift;
-my $f5 = shift;
-#my ($option, $input_file, $output_file, $format, $txt_file, $f6) = @ARGV;
+# my $f1 = shift or die "Error\tMissing option.\n";
+# my $f2 = shift;
+# my $f3 = shift;
+# my $f4 = shift;
+# my $f5 = shift;
+my ($f1, $f2, $f3, $f4, $f5, $f6) = @ARGV;
 
 my $f6 = f6_define(shift);
 # Check if a text file was provided as an argument
