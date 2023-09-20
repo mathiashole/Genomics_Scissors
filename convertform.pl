@@ -3,64 +3,44 @@
 use strict;
 use warnings;
 
+my ($option, $input_file) = @ARGV;
 
-# Get command line arguments
-my $option = shift;
-my $input_file = shift;
+convert_file($option, $input_file);
 
+sub convert_file {
+    my ($option, $input_file) = @_;
 
-# Check if all arguments are provided
-unless ($option && $input_file) {
-    die "Error\tUsage: perl convert.pl < -bed | -gff | -txt > input_file.\n\n \t Check --help or manual\tn";
-}
-
-# Get the base name of the input file
-#my ($output_file, $directories) = $input_file =~ /^(.*)\.[^.]+$/;
-my ($output_file, $directories) = $input_file =~ /^(.*?)(\.[^.]+)?$/;
-
-# Add the .txt extension to the output name
-$output_file .= ".txt";
-
-# Read input file and perform conversion as per option
-if ($option eq "-bed" || $option eq "--bed") {
-    if ($directories eq ".bed") {
-        my $data_ref = convert_bed_to_txt($input_file);
-
-        foreach my $row_ref (@$data_ref) {
-            print join("\t", @$row_ref), "\n";
-        }
-    } else {
-        print "Error\tInvalid final tag. The end tag must be .bed\n\n \t Check --help or manual\t\n"
-    }
-} elsif ($option eq "-gff" || $option eq "--gff") {
-    if ($directories eq ".gff") {
-
-        my $data_ref = convert_gff_to_txt($input_file);
-
-        foreach my $row_ref (@$data_ref) {
-            print join("\t", @$row_ref), "\n";
-        }
-    } else {
-        print "Error\tInvalid final tag. The end tag must be .gff\n\n \t Check --help or manual\t\n"
+    unless ($option && $input_file) {
+        die "Error\tUsage: perl convert.pl < -bed | -gff | -txt > input_file.\n\n \t Check --help or manual\tn";
     }
 
-} elsif ($option eq "-txt" || $option eq "--text") {
-    if ($directories eq ".txt") {
-        # If the option is -txt, the file is kept unchanged
-        my $data_ref = read_txt($input_file);
+    my ($output_file, $directories) = $input_file =~ /^(.*?)(\.[^.]+)?$/;
+    $output_file .= ".txt";
 
-        foreach my $row_ref (@$data_ref) {
-            print join("\t", @$row_ref), "\n";
+    if ($option eq "-bed" || $option eq "--bed") {
+        if ($directories eq ".bed") {
+            my $data_ref = convert_bed_to_txt($input_file);
+            return $data_ref;
+        } else {
+            die "Error\tInvalid final tag. The end tag must be .bed\n\n \t Check --help or manual\t\n";
         }
-        #$input_file;
+    } elsif ($option eq "-gff" || $option eq "--gff") {
+        if ($directories eq ".gff") {
+            my $data_ref = convert_gff_to_txt($input_file);
+            return $data_ref;
+        } else {
+            die "Error\tInvalid final tag. The end tag must be .gff\n\n \t Check --help or manual\t\n";
+        }
+    } elsif ($option eq "-txt" || $option eq "--text") {
+        if ($directories eq ".txt") {
+            my $data_ref = read_txt($input_file);
+            return $data_ref;
+        } else {
+            die "Error\tInvalid final tag. The end tag must be .txt\n \t Check --help or manual\t\n";
+        }
     } else {
-       print "Error\tInvalid final tag. The end tag must be .txt\n \t Check --help or manual\t\n" 
+        die "Error\tInvalid option. Must be -bed, -gff, or -txt.\n \t Check --help or manual\t\n";
     }
-
-} else {
-
-    die "Error\tInvalid option. Must be -bed, -gff, or -txt.\n \t Check --help or manual\t\n";
-
 }
 
 # Function to convert BED file to TXT
