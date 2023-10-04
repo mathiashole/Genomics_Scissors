@@ -2,6 +2,8 @@
 
 use strict;
 use warnings;
+use FindBin qw($Bin);
+use File::Spec;
 
 my $f1 = shift or die "\nError\tMissing multifasta file\n";
 my $f2 = shift or die "\nError\tMissing coordinate file (txt, gff or bed)\n";
@@ -30,11 +32,11 @@ sub extractor {
 			$secuencia = uc($secuencia);
 		}
 		
-        #my $output_path = "../output/$output_file";
+        my $output_path = File::Spec->catfile('output', $output_file);
 		my $fasta_string = ">$name"."_$seq_name [$start $end] ".join(" ",@rest)."\n".$secuencia."\n";;
 		
 		if ($output_file){
-			open(FILE,">>./$output_file"); #$output_path
+			open(FILE, '>', $output_path);
 			print FILE "$fasta_string";
 			close(FILE);
 		}else{
