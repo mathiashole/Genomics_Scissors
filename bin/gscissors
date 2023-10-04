@@ -3,9 +3,12 @@
 use strict;
 use warnings;
 use FindBin qw($Bin);
+use File::Spec;
 
-my $CONVERT_SCRIPT = "$Bin/lib/convertform.pl";
-my $EXTRACT_SCRIPT = "$Bin/lib/extract.pl";
+my $script_dir = $FindBin::Bin;
+my $lib_dir = File::Spec->catdir($script_dir, '..', 'lib');  # Go back one level to access "lib"
+my $CONVERT_SCRIPT = File::Spec->catfile($lib_dir, 'convertform.pl');
+my $EXTRACT_SCRIPT = File::Spec->catfile($lib_dir, 'extract.pl');
 
 my $f1 = shift or die "Error\tMissing option.\n";
 my $f2 = shift;
