@@ -10,6 +10,7 @@ my $lib_dir = File::Spec->catdir($script_dir, '..', 'lib');  # Go back one level
 my $CONVERT_SCRIPT = File::Spec->catfile($lib_dir, 'convertform.pl');
 my $EXTRACT_SCRIPT = File::Spec->catfile($lib_dir, 'extract.pl');
 
+## CHANGE OPTIONG FLAG WITH MODULE
 my $f1 = shift or die "Error\tMissing option.\n";
 my $f2 = shift;
 my $f3 = shift;
