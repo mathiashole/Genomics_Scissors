@@ -4,6 +4,20 @@ use strict;
 use warnings;
 use FindBin qw($Bin);
 use File::Spec;
+use Getopt::Long;
+
+my $stat_flag = 0;
+my $length_flag = 0;
+my $help_flag = 0;
+my $version_flag = 0;
+
+GetOptions(
+    "stat" => \$stat_flag,
+    "length" => \$length_flag,
+    "help" => \$help_flag,
+    "version" => \$version_flag
+);
+
 
 my $script_dir = $FindBin::Bin;
 my $lib_dir = File::Spec->catdir($script_dir, '..', 'lib');  # Go back one level to access "lib"
