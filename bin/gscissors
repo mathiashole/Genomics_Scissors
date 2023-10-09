@@ -6,14 +6,17 @@ use FindBin qw($Bin);
 use File::Spec;
 use Getopt::Long;
 
-my $stat_flag = 0;
-my $length_flag = 0;
+my $type_seq_flag = 0;
+my $type_coord_flag = 0;
 my $help_flag = 0;
 my $version_flag = 0;
 
 GetOptions(
-    "stat" => \$stat_flag,
-    "length" => \$length_flag,
+    "fasta" => \$type_seq_flag_flag,
+    "fas" => \$type_seq_flag_flag,
+    "txt" => \$type_coord_flag,
+    "gff" => \$type_coord_flag,
+    "bed" => \$type_coord_flag,
     "help" => \$help_flag,
     "version" => \$version_flag
 );
