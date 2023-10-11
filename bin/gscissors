@@ -6,23 +6,23 @@ use FindBin qw($Bin);
 use File::Spec;
 use Getopt::Long;
 
-my $type_fasta_flag = 0;
-my $type_fas_flag = 0;
-my $type_bed_flag = 0;
-my $type_gff_flag = 0;
-my $type_txt_flag = 0;
-my $help_flag = 0;
-my $version_flag = 0;
+# my $type_fasta_flag = 0;
+# my $type_fas_flag = 0;
+# my $type_bed_flag = 0;
+# my $type_gff_flag = 0;
+# my $type_txt_flag = 0;
+# my $help_flag = 0;
+# my $version_flag = 0;
 
-GetOptions(
-    "fasta" => \$type_fasta_flag,
-    "fas" => \$type_fas_flag,
-    "bed" => \$type_bed_flag,
-    "gff" => \$type_gff_flag,
-    "txt" => \$type_txt_flag,
-    "help" => \$help_flag,
-    "version" => \$version_flag
-);
+# GetOptions(
+#     "fasta" => \$type_fasta_flag,
+#     "fas" => \$type_fas_flag,
+#     "bed" => \$type_bed_flag,
+#     "gff" => \$type_gff_flag,
+#     "txt" => \$type_txt_flag,
+#     "help" => \$help_flag,
+#     "version" => \$version_flag
+# );
 
 
 my $script_dir = $FindBin::Bin;
@@ -40,7 +40,7 @@ my $f5 = shift;
 
 my $f6 = f6_define(shift);
 #my $f5 = "$Bin/output/$f5A";
-print $f5;
+#print $f5;
 # Check if a text file was provided as an argument
 
 # Function to show help
