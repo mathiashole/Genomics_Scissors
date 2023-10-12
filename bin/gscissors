@@ -44,6 +44,7 @@ my $f6 = f6_define(shift);
 # Check if a text file was provided as an argument
 
 # Function to show help
+## CHANGE OPTIONG FLAG WITH MODULE
 if ($f1 eq '-h' || $f1 eq '--help') {
     show_help();
 } elsif ($f1 eq '-v' || $f1 eq '--version') {
@@ -106,7 +107,7 @@ sub process_conversion {
 
     return $output;
 }
-
+## CHANGE OPTIONG FLAG WITH MODULE
 sub process_extract {
     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
 
@@ -177,7 +178,7 @@ sub validate_fasta_format {
     }
 }
 
-
+## CHANGE OPTIONG FLAG WITH MODULE
 sub validation_and_execution_flow {
     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
 
