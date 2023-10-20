@@ -32,10 +32,10 @@ To use `GScissors`, follow these steps:
 ./bin/gscissors -fasta input.fasta -gff file.gff output.fasta 
 ```
 ```{bash, eval = FALSE}
-perl gscissors.pl -fasta input.fasta -bed file.bed output.fasta 
+./bin/gscissors -fasta input.fasta -bed file.bed output.fasta 
 ```
 ```{bash, eval = FALSE}
-perl gscissors.pl --help 
+./bin/gscissors --help 
 ```
 `GScissors` extracts the sequence of positions in the input.fasta file, renames it, and saves the resulting sequence in the output.fasta file.
 
