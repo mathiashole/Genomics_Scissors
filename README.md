@@ -26,10 +26,10 @@ To use `GScissors`, follow these steps:
 ## :bulb: Quick Examples
 
 ```{bash, eval = FALSE}
-perl gscissors.pl -fasta input.fasta -txt position_of_my_sequence.txt output.fasta 
+./bin/gscissors -fasta input.fasta -txt position_of_my_sequence.txt output.fasta 
 ```
 ```{bash, eval = FALSE}
-perl gscissors.pl -fasta input.fasta -gff file.gff output.fasta 
+./bin/gscissors -fasta input.fasta -gff file.gff output.fasta 
 ```
 ```{bash, eval = FALSE}
 perl gscissors.pl -fasta input.fasta -bed file.bed output.fasta 
