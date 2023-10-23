@@ -1,10 +1,10 @@
-# GScissors
+# gscissors
 
 [![Perl](https://img.shields.io/badge/Perl-blue?style=for-the-badge&logo=perl&logoColor=white&labelColor=101010)](https://www.perl.org)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mathiashole/GScissors?color=white&logo=GitHub&style=for-the-badge&logoColor=white&labelColor=101010)
 ![GitHub](https://img.shields.io/github/license/mathiashole/GScissors?color=%23179287&style=for-the-badge&logoColor=white&labelColor=101010)
 
-`GScissors` is a Perl script for the extraction of sequences from a multifasta file, allowing the selection of specific sequences by specifying their start and end positions.
+`gscissors` is a Perl script for the extraction of sequences from a multifasta file, allowing the selection of specific sequences by specifying their start and end positions.
 
 ## :book: Features
 
@@ -16,7 +16,7 @@
 
 ## :hammer: Usage
 
-To use `GScissors`, follow these steps:
+To use `gscissors`, follow these steps:
 
 -   Clone the gscissors.pl file from the GitHub repository [Link](https://github.com/mathiashole/GScissors).
 -   Open a terminal on your operating system and navigate to the folder where the gscissors.pl file is located.
@@ -49,7 +49,7 @@ To use `GScissors`, follow these steps:
 
 :mailbox: joacomangino@gmail.com
 
-:heavy_multiplication_x: Twitter [@MathiasMangino](https://twitter.com/joaquinmangino)
+:heavy_multiplication_x: X [@MathiasMangino](https://twitter.com/joaquinmangino)
 
 ## License
 MIT &copy; [Mathias Mangino](https://github.com/mathiashole)
