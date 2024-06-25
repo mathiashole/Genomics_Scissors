@@ -6,18 +6,13 @@ use FindBin qw($Bin);
 use File::Spec;
 
 # -----------------------------------------------------------------------------
-# GScissors.pl
+# Extractor Script
 # -----------------------------------------------------------------------------
-# 🧬 GScissors 🔪 - A Tool for Sequence Data Manipulation
+# Original Author: Miguel Ponce de Leon
+# Modified by: Mathias Mangino
 #
-# Authors:
-# - Mathias Mangino (main author)
-# - Miguel Ponce de Leon (original author of extractor.pl script)
-#
-# This script is based on the original work by Miguel Ponce de Leon, which was
-# modified and extended by Mathias Mangino.
-#
-# MIT © Mathias Mangino
+# This script was originally created by Miguel Ponce de Leon. The modifications
+# include additional functionality and improvements by Mathias Mangino.
 # -----------------------------------------------------------------------------
 
 
