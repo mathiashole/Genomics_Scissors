@@ -130,19 +130,20 @@ sub read_txt {
 #     #my ($blast_file, $output_file) = @_;
 #     my ($input_file) = @_;
 
-#     open(my $blast_fh, '<', $blast_file) or die "Error opening BLAST file $blast_file: $!\n";
-#     open(my $output_fh, '>', $output_file) or die "Error creating output file $output_file: $!\n";
+#     #open(my $blast_fh, '<', $blast_file) or die "Error opening BLAST file $blast_file: $!\n";
+#     #open(my $output_fh, '>', $output_file) or die "Error creating output file $output_file: $!\n";
+#     open(my $input_fh, "<", $input_file) or die "Error\tCannot open input file: $!";
 
-#     while (my $line = <$blast_fh>) {
+#     while (my $line = <$input_fh>) {
 #         next if $line =~ /^#/;  # Skip comment lines if present
 #         chomp $line;
 #         my @fields = split(/\t/, $line);
 #         my $result_line = join("\t", $fields[0], $fields[6], $fields[7]) . "\n";
-#         print $output_fh $result_line;
+#         #print $output_fh $result_line;
 #     }
 
-#     close($blast_fh);
-#     close($output_fh);
+#     close($input_fh);
+#     #close($output_fh);
 
 #     print "BLAST results converted to $output_file successfully.\n";
 # }
