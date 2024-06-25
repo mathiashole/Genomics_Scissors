@@ -138,7 +138,7 @@ sub process_extract {
     }
     
     # Command in perl to be executed
-    my $extract_run = "perl $EXTRACT_SCRIPT $f2 $acumulated_output $f4 $f5 $f6";
+    my $extract_run = "perl $EXTRACT_SCRIPT $f2 $acumulated_output $f4 $f5 $f6"; ## ADD more argument of all contig $f3 but in final
     
     print "Start sequence extraction:";
 
