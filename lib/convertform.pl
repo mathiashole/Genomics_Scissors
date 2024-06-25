@@ -126,24 +126,26 @@ sub read_txt {
     return \@data;
 }
 
-# sub convert_blast_to_txt {
-#     #my ($blast_file, $output_file) = @_;
-#     my ($input_file) = @_;
+sub convert_blast_to_txt {
+    my ($input_file) = @_;
 
-#     #open(my $blast_fh, '<', $blast_file) or die "Error opening BLAST file $blast_file: $!\n";
-#     #open(my $output_fh, '>', $output_file) or die "Error creating output file $output_file: $!\n";
-#     open(my $input_fh, "<", $input_file) or die "Error\tCannot open input file: $!";
+    open(my $input_fh, "<", $input_file) or die "Error\tCannot open input file: $!";
 
-#     while (my $line = <$input_fh>) {
-#         next if $line =~ /^#/;  # Skip comment lines if present
-#         chomp $line;
-#         my @fields = split(/\t/, $line);
-#         my $result_line = join("\t", $fields[0], $fields[6], $fields[7]) . "\n";
-#         #print $output_fh $result_line;
-#     }
+    my @data;
 
-#     close($input_fh);
-#     #close($output_fh);
+    while (my $line = <$input_fh>) {
+        chomp $line;
+        # Ignore lines beginning with "#"
+        next if $line =~ /^#/;
 
-#     print "BLAST results converted to $output_file successfully.\n";
-# }
+        my @fields = split("\t", $line);
+        my $query_id = $fields[0];
+        my $start = $fields[6];  # Column 7 in BLAST (0-based index)
+        my $end = $fields[7];    # Column 8 in BLAST (0-based index)
+
+        push @data, [$query_id, $start, $end];
+    }
+
+    close($input_fh);
+    return \@data;
+}
