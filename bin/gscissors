@@ -58,32 +58,35 @@ if ($f1 eq '-h' || $f1 eq '--help') {
 ## Function to show help of the program
 sub show_help {
 
-  print << 'HELP';
-  "Usage: GScissors 🔪
+    print << 'HELP';
+  🧬 GScissors 🔪 - A Tool for Sequence Data Manipulation
 
-  💻 Available [OPTIONS]:
+  💻 Usage:
+    GScissors [OPTIONS] <first_arg> <second_arg> <third_arg>
 
-    -h, --help		Show this help.
-    -v, --version	Show the version of the program.
-    -fasta, --fasta Your sequence data format.
-    -gff, --gff		If your data is gff format.
-	-bed, --bed		If your data is bed format.
-    -txt, --text	If your data is txt format.
+  📄 Options:
+    -h, --help        Show this help message and exit.
+    -v, --version     Show the version of the program.
+    -fasta, --fasta   Specify that your sequence data is in FASTA format.
+    -gff, --gff       Specify that your data is in GFF format.
+    -bed, --bed       Specify that your data is in BED format.
+    -txt, --text      Specify that your data is in TXT format.
 
-  📂 Available [ARGUMENTS]:
+  📂 Arguments:
+    <first_arg>       The first argument is the sequence in FASTA format.
+    <second_arg>      The second argument is the input file in TXT, BED, or GFF format.
+    <third_arg>       The third argument is the output file in FASTA format.
 
-	  first argument sequence in fasta format.
-	  second argument input txt, bed or gff format.
-	  third argument output fasta file.
+  📝 TXT Table Format:
+    Your TXT file should have the following format:
+      sequence_ID  start  end
+      sequence_ID  start  end  output_ID
 
-  📄 The format of txt table [FORMAT]:
-    sequence_ID	start	end  
-    sequence_ID	start	end	  output_ID
-
-  📨 CONTACT
+  📨 Contact:
+    For more information or to report issues, visit:
     https://github.com/mathiashole
 
-    MIT © Mathias Mangino
+  MIT © Mathias Mangino
 HELP
 }
 
