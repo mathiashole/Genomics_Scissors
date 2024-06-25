@@ -16,7 +16,7 @@ extractor($f1,$f2,$f3,$f4);
 
  
 sub extractor {
-	my ($fasta_file, $coordinate_file, $output_file, $flag_not_to_upper) = @_;
+	my ($fasta_file, $coordinate_file, $output_file, $flag_not_to_upper) = @_; ## ADD more argument of all contig
 		
 	my %hash_sequence = read_fasta($fasta_file);
 	
