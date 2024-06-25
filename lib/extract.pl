@@ -5,6 +5,22 @@ use warnings;
 use FindBin qw($Bin);
 use File::Spec;
 
+# -----------------------------------------------------------------------------
+# GScissors.pl
+# -----------------------------------------------------------------------------
+# 🧬 GScissors 🔪 - A Tool for Sequence Data Manipulation
+#
+# Authors:
+# - Mathias Mangino (main author)
+# - Miguel Ponce de Leon (original author of extractor.pl script)
+#
+# This script is based on the original work by Miguel Ponce de Leon, which was
+# modified and extended by Mathias Mangino.
+#
+# MIT © Mathias Mangino
+# -----------------------------------------------------------------------------
+
+
 my $f1 = shift or die "\nError\tMissing multifasta file\n";
 my $f2 = shift or die "\nError\tMissing coordinate file (txt, gff or bed)\n";
 my $f3 = shift;
