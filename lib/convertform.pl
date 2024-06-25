@@ -126,6 +126,7 @@ sub read_txt {
     return \@data;
 }
 
+# Function to convert BLAST file to TXT
 sub convert_blast_to_txt {
     my ($input_file) = @_;
 
