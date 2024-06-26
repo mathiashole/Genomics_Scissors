@@ -29,6 +29,9 @@ To use `gscissors`, follow these steps:
 ./bin/gscissors -fasta input.fasta -txt position_of_my_sequence.txt output.fasta 
 ```
 ```{bash, eval = FALSE}
+./bin/gscissors -fasta input.fasta -blast blast_result output.fasta 
+```
+```{bash, eval = FALSE}
 ./bin/gscissors -fasta input.fasta -gff file.gff output.fasta 
 ```
 ```{bash, eval = FALSE}
