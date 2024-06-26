@@ -11,7 +11,7 @@ sub convert_file {
     my ($option, $input_file) = @_;
 
     unless ($option && $input_file) {
-        die "Error\tUsage: perl convert.pl < -bed | -gff | -txt > input_file.\n\n \t Check --help or manual\tn";
+        die "Error\tUsage: perl convert.pl < -bed | -gff | -txt | -blast > input_file.\n\n \t Check --help or manual\tn";
     }
 
     my ($output_file, $directories) = $input_file =~ /^(.*?)(\.[^.]+)?$/;
@@ -127,6 +127,11 @@ sub read_txt {
     my @row = split("\t", $line);
     push @data, \@row;
     }
+
+    # while (my $line = <$input_fh>) {
+    #     chomp $line;
+    #     push @data, [split("\t", $line)];
+    # } ## NEW VERSION
 
     close($input_fh);
    # close($output_fh);
