@@ -31,6 +31,13 @@ sub convert_file {
         } else {
             die "Error\tInvalid final tag. The end tag must be .gff\n\n \t Check --help or manual\t\n";
         }
+    } elsif ($option eq "-blast" || $option eq "--blast") {
+        if ($directories eq ".txt" || $directories eq ".blast" || !$directories) {
+            my $data_ref = convert_blast_to_txt($input_file);
+            return $data_ref;
+        } else {
+            die "Error\tInvalid final tag.\n\n \t Check --help or manual\t\n";
+        }
     } elsif ($option eq "-txt" || $option eq "--text") {
         if ($directories eq ".txt") {
             my $data_ref = read_txt($input_file);
