@@ -50,9 +50,7 @@ To use `gscissors`, follow these steps:
 
 ## :mega: Contact
 
-:mailbox: joacomangino@gmail.com
-
-:heavy_multiplication_x: X [@MathiasMangino](https://twitter.com/joaquinmangino)
+:heavy_multiplication_x: [@MathiasMangino](https://twitter.com/joaquinmangino)
 
 ## License
 MIT &copy; [Mathias Mangino](https://github.com/mathiashole)
