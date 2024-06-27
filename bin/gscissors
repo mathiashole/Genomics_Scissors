@@ -196,7 +196,7 @@ sub validation_and_execution_flow {
                 $f3 eq '-gff' || $f3 eq '--gff' ||
                 $f3 eq '-bed' || $f3 eq '--bed' ||
                 $f3 eq '-blast' || $f3 eq '--BLAST') { ## ADD -full_length option to extract sequence
-                # ADD OTHER CONDITIONAL VALIDATION FILE FORMAT GFF BED or TXT!!!!
+                ## ADD NEW OPTION TO FILTER FILE txt, gff, bed and blast NEW VERSION!!!
                 process_extract($f1, $f2, $f3, $f4, $f5, $f6);
 
             } else {
