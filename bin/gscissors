@@ -71,6 +71,7 @@ sub show_help {
     -gff, --gff       Specify that your data is in GFF format.
     -bed, --bed       Specify that your data is in BED format.
     -txt, --text      Specify that your data is in TXT format.
+    -blast, --blast   Specify that your data is in blast format.
 
   📂 Arguments:
     <first_arg>       The first argument is the sequence in FASTA format.
