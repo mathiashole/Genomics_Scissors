@@ -102,51 +102,6 @@ sub validate_filename_format {
     return $filename =~ /^[^.]+\.(txt|gff|bed)$/i;
 }
 
-# sub process_conversion {
-#     my ($f3, $f4) = @_;
-
-#     my $convert_run = "perl $CONVERT_SCRIPT $f3 $f4";
-#     my $output = `$convert_run`;
-
-#     # Guardar el resultado en un archivo temporal
-#     my $temp_file = "temp_output.txt";
-#     open(my $fh, '>', $temp_file) or die "Error: Cannot open temp file: $!";
-#     print $fh $output;
-#     close($fh);
-
-#     return $temp_file;
-# }
-
-
-# sub process_extract {
-#     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
-
-#     print "Start of format conversion $f4:\n";
-#     my $temp_file = process_conversion($f3, $f4);
-    
-#     if ($@) {
-#         print "Error\tConversion failed: $@\n";
-#     } else {
-#         print "Successful\tConversion completed\n\n";
-#     }
-    
-#     my $extract_run = "perl $EXTRACT_SCRIPT $f2 $temp_file $f5 $f6";
-    
-#     print "Start sequence extraction:";
-
-#     my $exit_code = system($extract_run);  
-
-#     if ($exit_code == 0) {
-#         print "\nSuccessful\tExtraction completed\n\n";
-#     } else {
-#         print "\nError\tExtraction failed: $exit_code\n";
-#     }
-
-#     # Eliminar archivo temporal
-#     unlink $temp_file or warn "Could not unlink $temp_file: $!";
-# }
-
-
 
 sub process_conversion {
     my ($f3, $f4) = @_;
