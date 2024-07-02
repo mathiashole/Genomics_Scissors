@@ -29,6 +29,14 @@ extractor($f1,$f2,$f3,$f4);
 sub extractor {
 	my ($fasta_file, $coordinate_file, $output_file, $flag_not_to_upper) = @_; ## ADD more argument of all contig
 		
+        # Debug: Print the contents of $coordinate_file
+    print "Debug: Contents of $coordinate_file:\n";
+    open(my $debug_fh, '<', $coordinate_file) or die "\nError\tThis file does not exist $coordinate_file: $!\n";
+    while (my $line = <$debug_fh>) {
+        print $line;
+    }
+    close($debug_fh);
+
 	my %hash_sequence = read_fasta($fasta_file);
 	print "Debug: Starting sequence extraction for file: $fasta_file\n $coordinate_file\n $output_file\n";
 	open(my $coordinate_fh, '<', $coordinate_file) or die "\nError\tThis file does not exist $coordinate_file: $!\n";
