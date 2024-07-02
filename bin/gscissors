@@ -108,18 +108,25 @@ sub process_conversion {
 
     my $convert_run = "perl $CONVERT_SCRIPT $f3 $f4";
     # Capture command output
-    my $output = `$convert_run`;  
+    my $output = `$convert_run`;
+
+    #     # Abrir $output y mostrar su contenido
+    # open(my $fh, '<', \$output) or die "Could not open string for reading: $!";
+    # while (my $line = <$fh>) {
+    #     print $line;
+    # }
+    # close($fh);  
 
     return $output;
 }
 ## CHANGE OPTIONG FLAG WITH MODULE
+
 sub process_extract {
     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
 
     print "Start of format conversion $f4:\n";
     # This section execute process_conversion() and save in variable
     my $run_process_conversion = process_conversion($f3, $f4);
-    
     # split array into line
     my @array = split("\n", $run_process_conversion);
     
@@ -138,7 +145,7 @@ sub process_extract {
     } else {
         print "Successful\tConversion completed\n\n";
     }
-    
+
     # Command in perl to be executed
     my $extract_run = "perl $EXTRACT_SCRIPT $f2 $acumulated_output $f4 $f5 $f6"; ## ADD more argument of all contig $f3 but in final
     
