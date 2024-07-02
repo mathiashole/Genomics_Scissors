@@ -102,102 +102,102 @@ sub validate_filename_format {
     return $filename =~ /^[^.]+\.(txt|gff|bed)$/i;
 }
 
-sub process_conversion {
-    my ($f3, $f4) = @_;
-
-    my $convert_run = "perl $CONVERT_SCRIPT $f3 $f4";
-    my $output = `$convert_run`;
-
-    # Guardar el resultado en un archivo temporal
-    my $temp_file = "temp_output.txt";
-    open(my $fh, '>', $temp_file) or die "Error: Cannot open temp file: $!";
-    print $fh $output;
-    close($fh);
-
-    return $temp_file;
-}
-
-
-sub process_extract {
-    my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
-
-    print "Start of format conversion $f4:\n";
-    my $temp_file = process_conversion($f3, $f4);
-    
-    if ($@) {
-        print "Error\tConversion failed: $@\n";
-    } else {
-        print "Successful\tConversion completed\n\n";
-    }
-    
-    my $extract_run = "perl $EXTRACT_SCRIPT $f2 $temp_file $f4 $f5 $f6";
-    
-    print "Start sequence extraction:";
-
-    my $exit_code = system($extract_run);  
-
-    if ($exit_code == 0) {
-        print "\nSuccessful\tExtraction completed\n\n";
-    } else {
-        print "\nError\tExtraction failed: $exit_code\n";
-    }
-
-    # Eliminar archivo temporal
-    unlink $temp_file or warn "Could not unlink $temp_file: $!";
-}
-
-
-
 # sub process_conversion {
 #     my ($f3, $f4) = @_;
 
 #     my $convert_run = "perl $CONVERT_SCRIPT $f3 $f4";
-#     # Capture command output
-#     my $output = `$convert_run`;  
+#     my $output = `$convert_run`;
 
-#     return $output;
+#     # Guardar el resultado en un archivo temporal
+#     my $temp_file = "temp_output.txt";
+#     open(my $fh, '>', $temp_file) or die "Error: Cannot open temp file: $!";
+#     print $fh $output;
+#     close($fh);
+
+#     return $temp_file;
 # }
-# ## CHANGE OPTIONG FLAG WITH MODULE
+
+
 # sub process_extract {
 #     my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
 
 #     print "Start of format conversion $f4:\n";
-#     # This section execute process_conversion() and save in variable
-#     my $run_process_conversion = process_conversion($f3, $f4);
-    
-#     # split array into line
-#     my @array = split("\n", $run_process_conversion);
-    
-#     my $acumulated_output = '';
-
-#     foreach my $line (@array) {
-#        # Work with each line in the array
-#         #print "$line\n";
-#         # Accumulate line in variable
-#         my $acumulated_output .= "$line\n";
-
-#     }
+#     my $temp_file = process_conversion($f3, $f4);
     
 #     if ($@) {
-#         print "Error\tConversion faild$@\n";
+#         print "Error\tConversion failed: $@\n";
 #     } else {
 #         print "Successful\tConversion completed\n\n";
 #     }
     
-#     # Command in perl to be executed
-#     my $extract_run = "perl $EXTRACT_SCRIPT $f2 $acumulated_output $f4 $f5 $f6"; ## ADD more argument of all contig $f3 but in final
+#     my $extract_run = "perl $EXTRACT_SCRIPT $f2 $temp_file $f5 $f6";
     
 #     print "Start sequence extraction:";
 
-#     #system($extract_run);  # Capture command output
-#     my $exit_code = system($extract_run);  # Capture command exit code
+#     my $exit_code = system($extract_run);  
 
 #     if ($exit_code == 0) {
 #         print "\nSuccessful\tExtraction completed\n\n";
 #     } else {
-#         print "\nError\tExtraction faild: $exit_code\n";
+#         print "\nError\tExtraction failed: $exit_code\n";
 #     }
+
+#     # Eliminar archivo temporal
+#     unlink $temp_file or warn "Could not unlink $temp_file: $!";
 # }
+
+
+
+sub process_conversion {
+    my ($f3, $f4) = @_;
+
+    my $convert_run = "perl $CONVERT_SCRIPT $f3 $f4";
+    # Capture command output
+    my $output = `$convert_run`;  
+
+    return $output;
+}
+## CHANGE OPTIONG FLAG WITH MODULE
+sub process_extract {
+    my ($f1, $f2, $f3, $f4, $f5, $f6) = @_;
+
+    print "Start of format conversion $f4:\n";
+    # This section execute process_conversion() and save in variable
+    my $run_process_conversion = process_conversion($f3, $f4);
+    
+    # split array into line
+    my @array = split("\n", $run_process_conversion);
+    
+    my $acumulated_output = '';
+
+    foreach my $line (@array) {
+       # Work with each line in the array
+        #print "$line\n";
+        # Accumulate line in variable
+        my $acumulated_output .= "$line\n";
+
+    }
+    
+    if ($@) {
+        print "Error\tConversion faild$@\n";
+    } else {
+        print "Successful\tConversion completed\n\n";
+    }
+    
+    # Command in perl to be executed
+    my $extract_run = "perl $EXTRACT_SCRIPT $f2 $acumulated_output $f4 $f5 $f6"; ## ADD more argument of all contig $f3 but in final
+    
+    print "Start sequence extraction:";
+
+    #system($extract_run);  # Capture command output
+    my $exit_code = system($extract_run);  # Capture command exit code
+
+    if ($exit_code == 0) {
+        print "\nSuccessful\tExtraction completed\n\n";
+    } else {
+        print "\nError\tExtraction faild: $exit_code\n";
+    }
+}
 
 # sub check_fasta_format {
 #     my ($file) = @_;
