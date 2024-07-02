@@ -103,7 +103,7 @@ sub convert_gff_to_txt {
         my $name = (split(";", $fields[8]))[0];
         $name =~ s/.*?ID=//;
 
-        push @data, [$contig, $start, $end];
+        push @data, [$contig, $start, $end, $name];
     }
 
     close($input_fh);
