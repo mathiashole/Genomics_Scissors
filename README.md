@@ -26,19 +26,19 @@ To use `gscissors`, follow these steps:
 ## :bulb: Quick Examples
 
 ```{bash, eval = FALSE}
-./bin/gscissors --fasta input.fasta --coordinates position_of_my_sequence.txt --format txt --output output.fasta 
+./gscissors --fasta input.fasta --coordinates position_of_my_sequence.txt --format txt --output output.fasta 
 ```
 ```{bash, eval = FALSE}
-./bin/gscissors --fasta input.fasta --coordinates blast_result --format blast --output output.fasta 
+./gscissors --fasta input.fasta --coordinates blast_result --format blast --output output.fasta 
 ```
 ```{bash, eval = FALSE}
-./bin/gscissors --fasta input.fasta --coordinates file.gff --format gff --output output.fasta 
+./gscissors --fasta input.fasta --coordinates file.gff --format gff --output output.fasta 
 ```
 ```{bash, eval = FALSE}
-./bin/gscissors --fasta input.fasta --coordinates file.bed --format bed --output output.fasta 
+./gscissors --fasta input.fasta --coordinates file.bed --format bed --output output.fasta 
 ```
 ```{bash, eval = FALSE}
-./bin/gscissors --help 
+./gscissors --help 
 ```
 `GScissors` extracts the sequence of positions in the input.fasta file, renames it, and saves the resulting sequence in the output.fasta file.
 
