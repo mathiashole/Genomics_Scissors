@@ -14,7 +14,7 @@ use File::Spec;
 # -----------------------------------------------------------------------------
 
 # Get command line options
-my ($fasta_file, $coord_file, $coord_format, $output_file, $flag_not_to_upper, $help, $version, $log_file);
+my ($fasta_file, $coord_file, $coord_format, $output_file, $flag_not_to_upper, $help, $version, $log);
 GetOptions(
     'fasta=s'       => \$fasta_file,
     'coordinates=s' => \$coord_file,
@@ -39,9 +39,9 @@ die "Error: Missing output file\n" unless $output_file;
 # Determine the log file name based on the output file name if --log is specified
 my $log_file;
 if ($log) {
-    my ($directories, $filename) = (File::Spec->splitpath($output_file))[1,2];
-    $filename =~ s/\.[^.]+$//;  # Remove the file extension
-    $log_file = File::Spec->catfile($directories, "$filename.log");
+    my ($vol, $dir, $file) = File::Spec->splitpath($output_file);
+    $file =~ s/\.[^.]+$//;  # Remove the file extension
+    $log_file = File::Spec->catpath($vol, $dir, "$file.log");
 }
 
 print "🔄 Processing started...\n";
