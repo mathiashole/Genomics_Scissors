@@ -214,7 +214,7 @@ sub show_help {
   🧬 GScissors 🔪 - A Tool for Sequence Data Manipulation
 
   💻 Usage:
-    GScissors [OPTIONS] --fasta <fasta_file> --coordinates <coord_file> --format <format> --output <output_file> [--noupper]
+    GScissors [OPTIONS] --fasta <fasta_file> --coordinates <coord_file> --format <format> --output <output_file> [--noupper] [--log <log_file>] [--verbose <level>] [--output_format <format>]
 
   📄 Options:
     -h, --help        Show this help message and exit.
@@ -224,12 +224,16 @@ sub show_help {
     -format, --format Specify the format of the coordinate file (txt, gff, bed, blast).
     -output, --output Specify the output file.
     --noupper         Specify if the output sequences should not be converted to uppercase.
+    --log             Specify a log file to store IDs not found in the FASTA file.
+    --verbose         Specify the level of verbosity (0 for silent, higher values for more output).
+    --output_format   Specify the format of the output file (fasta, csv, json).
 
   📂 Arguments:
     --fasta           The sequence in FASTA format.
     --coordinates     The input file in TXT, BED, GFF, or BLAST format.
     --format          The format of the coordinate file.
     --output          The output file in FASTA format.
+    --log             The log file to store IDs not found in the FASTA file.
 
   📝 TXT Table Format:
     Your TXT file should have the following format:
