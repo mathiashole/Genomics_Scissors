@@ -225,7 +225,6 @@ sub show_help {
     -output, --output Specify the output file.
     --noupper         Specify if the output sequences should not be converted to uppercase.
     --log             Specify a log file to store IDs not found in the FASTA file.
-    --verbose         Specify the level of verbosity (0 for silent, higher values for more output).
     --output_format   Specify the format of the output file (fasta, csv, json).
 
   📂 Arguments:
