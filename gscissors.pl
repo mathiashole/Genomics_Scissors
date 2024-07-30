@@ -36,7 +36,13 @@ die "Error: Missing coordinate file\n" unless $coord_file;
 die "Error: Missing coordinate format\n" unless $coord_format;
 die "Error: Missing output file\n" unless $output_file;
 
-
+# Determine the log file name based on the output file name if --log is specified
+my $log_file;
+if ($log) {
+    my ($directories, $filename) = (File::Spec->splitpath($output_file))[1,2];
+    $filename =~ s/\.[^.]+$//;  # Remove the file extension
+    $log_file = File::Spec->catfile($directories, "$filename.log");
+}
 
 print "🔄 Processing started...\n";
 # Main program
