@@ -21,7 +21,7 @@ GetOptions(
     'format=s'      => \$coord_format,
     'output=s'      => \$output_file,
     'noupper!'      => \$flag_not_to_upper,
-    'log=s'         => \$log_file,
+    'log'         => \$log,
     'help|h'        => \$help,
     'version|v'     => \$version,
 ) or die "Error in command line arguments\n";
@@ -35,6 +35,8 @@ die "Error: Missing multifasta file\n" unless $fasta_file;
 die "Error: Missing coordinate file\n" unless $coord_file;
 die "Error: Missing coordinate format\n" unless $coord_format;
 die "Error: Missing output file\n" unless $output_file;
+
+
 
 print "🔄 Processing started...\n";
 # Main program
