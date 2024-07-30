@@ -66,7 +66,7 @@ sub extractor {
             print $output_fh $fasta_string;
         } else {
             warn "Warning: Sequence $name not found in FASTA file\n";
-            print $log_fh "Sequence $name not found in FASTA file\n" if $log_file;
+            print $log_fh "Sequence $name\t$start\t$end not found in FASTA file\n" if $log_file;
         }
     }
 
