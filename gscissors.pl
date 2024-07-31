@@ -82,57 +82,6 @@ sub extractor {
     close($log_fh) if $log_file;
 }
 
-# my ($fasta_file, $coord_file, $coord_format, $output_file, $flag_not_to_upper, $help, $version);
-# GetOptions(
-#     'fasta=s'       => \$fasta_file,
-#     'coordinates=s' => \$coord_file,
-#     'format=s'      => \$coord_format,
-#     'output=s'      => \$output_file,
-#     'noupper!'      => \$flag_not_to_upper,
-#     'help|h'        => \$help,
-#     'version|v'     => \$version,
-# ) or die "Error in command line arguments\n";
-
-# # Show help or version if requested
-# show_help() if $help;
-# show_version() if $version;
-
-# # Check required parameters
-# die "Error: Missing multifasta file\n" unless $fasta_file;
-# die "Error: Missing coordinate file\n" unless $coord_file;
-# die "Error: Missing coordinate format\n" unless $coord_format;
-# die "Error: Missing output file\n" unless $output_file;
-
-# print "🔄 Processing started...\n";
-# # Main program
-# extractor($fasta_file, $coord_file, $coord_format, $output_file, $flag_not_to_upper);
-# print "✅ Processing completed successfully. Output saved to $output_file\n";
-
-# sub extractor {
-#     my ($fasta_file, $coord_file, $coord_format, $output_file, $flag_not_to_upper) = @_;
-
-#     my %hash_sequence = read_fasta($fasta_file);
-#     open(my $output_fh, '>', $output_file) or die "\nError: Cannot open output file $output_file: $!\n";
-
-#     my @coordinates = parse_coordinate_file($coord_file, $coord_format);
-#     foreach my $coord (@coordinates) {
-#         my ($name, $start, $end, $seq_name, @rest) = @$coord;
-#         my $contig = $hash_sequence{$name};
-#         my $sequence = extract_sequence($contig, $start, $end);
-
-#         format_sequence(\$sequence);
-
-#         unless ($flag_not_to_upper) {
-#             $sequence = uc($sequence);
-#         }
-
-#         my $fasta_string = ">$name" . "_" . ($seq_name // '') . " [$start $end] " . join(" ", @rest) . "\n$sequence\n";
-#         print $output_fh $fasta_string;
-#     }
-
-#     close($output_fh);
-# }
-
 sub format_sequence {
     my $sequence_ref = $_[0];
     $$sequence_ref =~ s/(.{80})/$1\n/g;
