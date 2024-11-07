@@ -147,7 +147,7 @@ sub parse_coordinate_file {
         } elsif ($format eq 'bed') {
             @fields = (split(/\t/, $_))[0, 1, 2];
         } elsif ($format eq 'blast') {
-            @fields = (split(/\t/, $_))[0, 6, 7];
+            @fields = (split(/\t/, $_))[0, 8, 9];
         } else {
             die "Error: Unknown coordinate format $format\n";
         }
