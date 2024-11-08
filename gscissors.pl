@@ -132,6 +132,31 @@ sub extract_sequence {
     return $result;
 }
 
+# sub parse_coordinate_file {
+#     my ($coord_file, $format) = @_;
+#     my @coordinates;
+
+#     open(my $coord_fh, '<', $coord_file) or die "\nError: This file does not exist $coord_file: $!\n";
+#     while (<$coord_fh>) {
+#         chomp;
+#         my @fields;
+#         if ($format eq 'txt') {
+#             @fields = split(/\s+/, $_);
+#         } elsif ($format eq 'gff') {
+#             @fields = (split(/\t/, $_))[0, 3, 4, 8];
+#         } elsif ($format eq 'bed') {
+#             @fields = (split(/\t/, $_))[0, 1, 2];
+#         } elsif ($format eq 'blast') {
+#             @fields = (split(/\t/, $_))[0, 8, 9];
+#         } else {
+#             die "Error: Unknown coordinate format $format\n";
+#         }
+#         push @coordinates, \@fields;
+#     }
+#     close($coord_fh);
+
+#     return @coordinates;
+# }
 sub parse_coordinate_file {
     my ($coord_file, $format) = @_;
     my @coordinates;
@@ -143,7 +168,7 @@ sub parse_coordinate_file {
         if ($format eq 'txt') {
             @fields = split(/\s+/, $_);
         } elsif ($format eq 'gff') {
-            @fields = (split(/\t/, $_))[0, 3, 4, 8];
+            @fields = (split(/\t/, $_))[0, 3, 4, 6, 8]; # Include strand as [6]
         } elsif ($format eq 'bed') {
             @fields = (split(/\t/, $_))[0, 1, 2];
         } elsif ($format eq 'blast') {
@@ -157,6 +182,7 @@ sub parse_coordinate_file {
 
     return @coordinates;
 }
+
 
 sub reverse_complement {
     my ($seq) = @_;
