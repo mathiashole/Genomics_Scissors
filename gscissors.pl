@@ -59,7 +59,7 @@ sub extractor {
 
     my @coordinates = parse_coordinate_file($coord_file, $coord_format);
     foreach my $coord (@coordinates) {
-        my ($name, $start, $end, $seq_name, @rest) = @$coord;
+        my ($name, $start, $end, $strand, $seq_name, @rest) = @$coord;
         if (exists $hash_sequence{$name}) {
             my $contig = $hash_sequence{$name};
             my $sequence = extract_sequence($contig, $start, $end);
