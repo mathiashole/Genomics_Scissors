@@ -64,6 +64,12 @@ sub extractor {
             my $contig = $hash_sequence{$name};
             my $sequence = extract_sequence($contig, $start, $end);
 
+            # Check strand and reverse complement if necessary
+            if (defined $strand && $strand eq '-') {
+                $sequence = reverse_complement($sequence);
+            }
+
+
             format_sequence(\$sequence);
 
             unless ($flag_not_to_upper) {
