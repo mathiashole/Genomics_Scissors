@@ -176,7 +176,7 @@ sub parse_coordinate_file {
         } elsif ($format eq 'gff') {
             @fields = (split(/\t/, $_))[0, 3, 4, 6, 8]; # Include strand as [6]
         } elsif ($format eq 'bed') {
-            @fields = (split(/\t/, $_))[0, 1, 2];
+            @fields = (split(/\t/, $_))[0, 1, 2, 5]; # Include strand as [5]
         } elsif ($format eq 'blast') {
             @fields = (split(/\t/, $_))[0, 8, 9];
         } else {
