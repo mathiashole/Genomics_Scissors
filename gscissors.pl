@@ -78,7 +78,8 @@ sub extractor {
                 $sequence = uc($sequence);
             }
 
-            my $fasta_string = ">$name" . "_" . ($seq_name // '') . " [$start $end] " . join(" ", @rest) . "\n$sequence\n";
+            # my $fasta_string = ">$name" . "_" . ($seq_name // '') . " [$start $end] " . join(" ", @rest) . "\n$sequence\n";
+            my $fasta_string = ">$name" . "_" . ($strand // '') . " [$start $end] " . join(" ", @rest) . "\n$sequence\n";
             print $output_fh $fasta_string;
         } else {
             warn "Warning: Sequence $name not found in FASTA file\n";
