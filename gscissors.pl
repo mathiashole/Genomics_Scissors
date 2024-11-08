@@ -63,7 +63,8 @@ sub extractor {
         my ($name, $start, $end, $strand, @rest) = @$coord; # Adjust for strand
         if (exists $hash_sequence{$name}) {
             my $contig = $hash_sequence{$name};
-            my $sequence = extract_sequence($contig, $start, $end);
+            # my $sequence = extract_sequence($contig, $start, $end);
+            my $sequence = extract_sequence($contig, $start, $end, $strand);
 
             # # Check strand and reverse complement if necessary
             # if (defined $strand && $strand eq '-') {
