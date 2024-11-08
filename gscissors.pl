@@ -121,21 +121,34 @@ sub read_fasta {
 }
 
 sub extract_sequence {
-    my ($sequence, $start_coordinate, $end_coordinate) = @_;
+    # my ($sequence, $start_coordinate, $end_coordinate) = @_;
+    # $start_coordinate--;
+    # $end_coordinate--;
+
+    # my $length = abs($end_coordinate - $start_coordinate) + 1;
+    # my $result = '';
+
+    # if ($start_coordinate <= $end_coordinate) {
+    #     $result = substr($sequence, $start_coordinate, $length);
+    # } else {
+    #     my $seq_aux = substr($sequence, $end_coordinate, $length);
+    #     $result = reverse_complement($seq_aux);
+    # }
+
+    # return $result;
+    my ($sequence, $start_coordinate, $end_coordinate, $strand) = @_;
     $start_coordinate--;
     $end_coordinate--;
 
     my $length = abs($end_coordinate - $start_coordinate) + 1;
-    my $result = '';
+    my $result = substr($sequence, $start_coordinate, $length);
 
-    if ($start_coordinate <= $end_coordinate) {
-        $result = substr($sequence, $start_coordinate, $length);
-    } else {
-        my $seq_aux = substr($sequence, $end_coordinate, $length);
-        $result = reverse_complement($seq_aux);
+    if (defined $strand && $strand eq '-') {
+        $result = reverse_complement($result);
     }
 
     return $result;
+
 }
 
 # sub parse_coordinate_file {
