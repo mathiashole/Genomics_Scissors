@@ -143,12 +143,6 @@ sub extract_sequence {
     $start_coordinate--;
     $end_coordinate--;
 
-    # my $length = abs($end_coordinate - $start_coordinate) + 1;
-    # my $result = substr($sequence, $start_coordinate, $length);
-
-    # if (defined $strand && $strand eq '-') {
-    #     $result = reverse_complement($result);
-    # }
     my $length = abs($end_coordinate - $start_coordinate) + 1;
     my $result;
 
