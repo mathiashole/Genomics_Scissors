@@ -153,7 +153,9 @@ sub parse_coordinate_file {
         } elsif ($format eq 'gff') {
             @fields = (split(/\t/, $_))[0, 3, 4, 8];
         } elsif ($format eq 'bed') {
-            @fields = (split(/\t/, $_))[0, 1, 2];
+            my @fields = split(/\t/, $_);
+            @fields = @fields[0, 1, 2, 5] if @fields >= 6;
+            # @fields = (split(/\t/, $_))[0, 1, 2];
         } elsif ($format eq 'blast') {
             @fields = (split(/\t/, $_))[0, 8, 9];
         } else {
