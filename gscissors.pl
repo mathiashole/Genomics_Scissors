@@ -64,7 +64,7 @@ sub extractor {
         if ($coord_format eq 'id') {
             $name = $coord->[0];
 
-            # 
+            # Exact match
             if (exists $hash_sequence{$name}) {
                 my $sequence = $hash_sequence{$name};
                 format_sequence(\$sequence);
@@ -73,7 +73,7 @@ sub extractor {
                 }
                 print $output_fh ">$name\n$sequence\n";
 
-            # 
+            # Partial match
             } else {
                 my ($match) = grep { /^$name\b/ } keys %hash_sequence;
 
@@ -83,7 +83,7 @@ sub extractor {
                     $sequence = uc($sequence) unless $flag_not_to_upper;
                     print $output_fh ">$match\n$sequence\n";
 
-                #
+                # No match found
                 } else {
                     warn "Warning: Sequence $name not found in FASTA file\n";
                     print $log_fh "Sequence $name not found in FASTA file\n" if $log_file;
