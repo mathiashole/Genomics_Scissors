@@ -63,12 +63,12 @@ sub extractor {
         # my ($name, $start, $end, $strand, @rest) = @$coord; # Adjust for strand
         if ($coord_format eq 'idlist') {
             $name = $coord->[0];
-        if (exists $hash_sequence{$name}) {
-            my $sequence = $hash_sequence{$name};
-            format_sequence(\$sequence);
-            $sequence = uc($sequence) unless $flag_not_to_upper;
-            print $output_fh ">$name\n$sequence\n";
-        } else {
+            if (exists $hash_sequence{$name}) {
+                my $sequence = $hash_sequence{$name};
+                format_sequence(\$sequence);
+                $sequence = uc($sequence) unless $flag_not_to_upper;
+                print $output_fh ">$name\n$sequence\n";
+            } else {
             warn "Warning: Sequence $name not found in FASTA file\n";
             print $log_fh "Sequence $name not found in FASTA file\n" if $log_file;
         }
