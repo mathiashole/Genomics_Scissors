@@ -80,7 +80,10 @@ sub extractor {
                 if ($match) {
                     my $sequence = $hash_sequence{$match};
                     format_sequence(\$sequence);
-                    $sequence = uc($sequence) unless $flag_not_to_upper;
+                    # $sequence = uc($sequence) unless $flag_not_to_upper;
+                    unless ($flag_not_to_upper) {
+                        $sequence = uc($sequence);
+                    }
                     print $output_fh ">$match\n$sequence\n";
 
                 # No match found
