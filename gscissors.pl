@@ -200,6 +200,8 @@ sub parse_coordinate_file {
             @fields = (split(/\t/, $_))[0, 1, 2, 5]; # Include strand as [5]
         } elsif ($format eq 'blast') {
             @fields = (split(/\t/, $_))[0, 8, 9];
+        } elsif ($format eq 'id') {
+            @fields = ($_);  # 
         } else {
             die "Error: Unknown coordinate format $format\n";
         }
