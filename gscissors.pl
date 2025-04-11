@@ -66,7 +66,12 @@ sub extractor {
             if (exists $hash_sequence{$name}) {
                 my $sequence = $hash_sequence{$name};
                 format_sequence(\$sequence);
-                $sequence = uc($sequence) unless $flag_not_to_upper;
+                
+                # $sequence = uc($sequence) unless $flag_not_to_upper;
+                unless ($flag_not_to_upper) {
+                    $sequence = uc($sequence);
+                }
+
                 print $output_fh ">$name\n$sequence\n";
             } else {
                 warn "Warning: Sequence $name not found in FASTA file\n";
