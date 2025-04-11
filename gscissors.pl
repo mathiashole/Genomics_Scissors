@@ -74,7 +74,7 @@ sub extractor {
 
                 print $output_fh ">$name\n$sequence\n";
             } else {
-                # 
+                # If not found, search for partial match
                 my ($match) = grep { /^$name\b/ } keys %hash_sequence;
 
                 if ($match) {
