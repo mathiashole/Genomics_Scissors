@@ -71,7 +71,7 @@ sub extractor {
             } else {
             warn "Warning: Sequence $name not found in FASTA file\n";
             print $log_fh "Sequence $name not found in FASTA file\n" if $log_file;
-        }
+            }
         } else {
             my ($name, $start, $end, $strand, $seq_name, @rest) = @$coord;
             if (exists $hash_sequence{$name}) {
