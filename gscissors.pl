@@ -201,7 +201,7 @@ sub parse_coordinate_file {
         } elsif ($format eq 'blast') {
             @fields = (split(/\t/, $_))[0, 8, 9];
         } elsif ($format eq 'id') {
-            @fields = ($_);  # 
+            @fields = ($_);  # Single column: Sequence ID
         } else {
             die "Error: Unknown coordinate format $format\n";
         }
