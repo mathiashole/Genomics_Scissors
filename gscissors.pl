@@ -63,18 +63,18 @@ sub extractor {
         # my ($name, $start, $end, $strand, @rest) = @$coord; # Adjust for strand
         if ($coord_format eq 'id') {
             $name = $coord->[0];
+
+            # 
             if (exists $hash_sequence{$name}) {
                 my $sequence = $hash_sequence{$name};
                 format_sequence(\$sequence);
-
-                # $sequence = uc($sequence) unless $flag_not_to_upper;
                 unless ($flag_not_to_upper) {
                     $sequence = uc($sequence);
                 }
-
                 print $output_fh ">$name\n$sequence\n";
+
+            # 
             } else {
-                # If not found, search for partial match
                 my ($match) = grep { /^$name\b/ } keys %hash_sequence;
 
                 if ($match) {
@@ -82,12 +82,40 @@ sub extractor {
                     format_sequence(\$sequence);
                     $sequence = uc($sequence) unless $flag_not_to_upper;
                     print $output_fh ">$match\n$sequence\n";
+
+                #
+                } else {
+                    warn "Warning: Sequence $name not found in FASTA file\n";
+                    print $log_fh "Sequence $name not found in FASTA file\n" if $log_file;
                 }
-            } else {
-                warn "Warning: Sequence $name not found in FASTA file\n";
-                print $log_fh "Sequence $name not found in FASTA file\n" if $log_file;
             }
+
         } else {
+        #     if (exists $hash_sequence{$name}) {
+        #         my $sequence = $hash_sequence{$name};
+        #         format_sequence(\$sequence);
+
+        #         # $sequence = uc($sequence) unless $flag_not_to_upper;
+        #         unless ($flag_not_to_upper) {
+        #             $sequence = uc($sequence);
+        #         }
+
+        #         print $output_fh ">$name\n$sequence\n";
+        #     } else {
+        #         # If not found, search for partial match
+        #         my ($match) = grep { /^$name\b/ } keys %hash_sequence;
+
+        #         if ($match) {
+        #             my $sequence = $hash_sequence{$match};
+        #             format_sequence(\$sequence);
+        #             $sequence = uc($sequence) unless $flag_not_to_upper;
+        #             print $output_fh ">$match\n$sequence\n";
+        #         }
+        #     } else {
+        #         warn "Warning: Sequence $name not found in FASTA file\n";
+        #         print $log_fh "Sequence $name not found in FASTA file\n" if $log_file;
+        #     }
+        # } else {
             my ($name, $start, $end, $strand, $seq_name, @rest) = @$coord;
             if (exists $hash_sequence{$name}) {
                 my $contig = $hash_sequence{$name};
