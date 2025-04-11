@@ -61,12 +61,12 @@ sub extractor {
     foreach my $coord (@coordinates) {
         # my ($name, $start, $end, $strand, $seq_name, @rest) = @$coord;
         # my ($name, $start, $end, $strand, @rest) = @$coord; # Adjust for strand
-        if ($coord_format eq 'idlist') {
+        if ($coord_format eq 'id') {
             $name = $coord->[0];
             if (exists $hash_sequence{$name}) {
                 my $sequence = $hash_sequence{$name};
                 format_sequence(\$sequence);
-                
+
                 # $sequence = uc($sequence) unless $flag_not_to_upper;
                 unless ($flag_not_to_upper) {
                     $sequence = uc($sequence);
