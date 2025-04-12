@@ -62,7 +62,7 @@ sub extractor {
         # my ($name, $start, $end, $strand, $seq_name, @rest) = @$coord;
         # my ($name, $start, $end, $strand, @rest) = @$coord; # Adjust for strand
         if ($coord_format eq 'id') {
-            $name = $coord->[0];
+            my $name = $coord->[0];
 
             # Exact match
             if (exists $hash_sequence{$name}) {
